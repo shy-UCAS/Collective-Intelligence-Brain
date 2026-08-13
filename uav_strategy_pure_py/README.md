@@ -27,25 +27,96 @@ uav_strategy_pure_py/
 
 ## 运行
 
-使用原工程相同的 Conda 环境 `study`：
+### 前置条件
+
+- Conda 环境 `study`（与原工程一致）
+- **必须在主工程根目录**（含 `uav_strategy_pure_py/` 包的那一级，即
+  `Collective Intelligence Brain/`）下运行。因为使用 `python -m` 启动、
+  依赖包可见性；cd 进本目录内部会报 `ModuleNotFoundError`。
+
+### 基本启动
 
 ```powershell
 conda run -n study python -m uav_strategy_pure_py.main --seed 42
 ```
 
-常用参数：
+### 参数
 
-```text
---seed 42            随机种子，便于复现
---max-rounds 200000  最大仿真轮数
---output-dir         导出目录，默认 uav_strategy_pure_py/outputs
---digraph-attrs      航段图 JSON
---facilities         设施 JSON
---key-paths          可选 key_paths JSON
+| 参数 | 默认值 | 说明 |
+|---|---|---|
+| `--seed` | `42` | 随机种子，确定性复现 |
+| `--max-rounds` | `200000` | 最大仿真轮数 |
+| `--output-dir` | `uav_strategy_pure_py/outputs` | 导出目录，可用 `--output-dir` 指向 `outputs_opt` 之类独立目录 |
+| `--digraph-attrs` | `data/manual_plan_graph/manual_plan_graph_shaoxing_digraph_attrs.json` | 航段图 JSON（对应原版 `switch_config == 6`） |
+| `--facilities` | `data/facilities_shaoxing.json` | 设施 JSON |
+| `--key-paths` | `[[0, 3], [1, 4], [2, 5]]` | 三条关键路径；不传时用该默认值，也可传 JSON 文件路径 |
+
+### 示例
+
+复现 `outputs/` 中 90–110MB 量级的轨迹文件（绍兴空域、200k 轮、约 40 机）：
+
+```powershell
+conda run -n study python -m uav_strategy_pure_py.main --seed 42 --max-rounds 200000
 ```
 
-默认使用 `data/manual_plan_graph/manual_plan_graph_shaoxing_digraph_attrs.json`
-和 `data/facilities_shaoxing.json`，对应原版 `switch_config == 6`。
+导出到独立目录（`outputs_opt/` 目录即由此方式产生）：
+
+```powershell
+conda run -n study python -m uav_strategy_pure_py.main --seed 42 --output-dir uav_strategy_pure_py/outputs_opt
+```
+
+### 输出文件
+
+- 命名：`uav_trajectories_pure_YYYYMMDD_HHMMSS.json`（导出时刻时间戳，
+  见 `mission_orchestrator.py` 导出段）
+- 单文件约 90–110MB：`indent=4` 格式化 + 每帧每 agent 完整坐标；优化导出
+  已移除每帧重复的 `logs` 与 `cur_siblings_ids` 字段（见下文"优化后的回放器"）
+- **产物不入版本库**：主工程 `.gitignore` 已忽略 `uav_strategy_pure_py/outputs/`
+  与 `outputs_opt/`（大文件超过 GitHub 100MB 单文件上限），生成后仅留在本地
+
+## 数据流向（本包之后）
+
+本包导出的轨迹 JSON **不是终点**。`situationawareness latest` 项目的数据管线
+会继续消费它，逐级产出意图研判所需的 v3.2 请求包与合规对照：
+
+```text
+uav_strategy_pure_py/main.py
+  └─> uav_trajectories_pure_<ts>.json        （本包产物；原版 uav_trajectories_persistent_<ts>.json 同理）
+      └─> situationawareness latest/run_data_pipeline.ps1   （在 latest 目录下执行）
+           ├─ Stage 1  generate_agents02_orient_test_data.py   env: study
+           │            → agents02_orient_data_<ts>_seed<s>.json
+           │            → agents02_expected_labels_<ts>_seed<s>.json
+           ├─ Stage 2  build_agents02_v32_requests.py          env: study
+           │            → agents02_v32_http_requests_<ts>_seed<s>.json
+           └─ Stage 3  replay_v32_request_bundle.py            env: study_flask
+                        → agents02_v32_http_results_<ts>_seed<s>.json
+                        → agents02_v32_http_compliance_<ts>_seed<s>.json
+```
+
+调用示例（在 `situationawareness latest/` 目录下，用本包导出做输入）：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File run_data_pipeline.ps1 `
+  -Export "../uav_strategy_pure_py/outputs/uav_trajectories_pure_20260813_141401.json" `
+  -Seed 42
+```
+
+要点：
+
+- 输出命名 `agents02_*_<导出时间戳>_seed<seed>.json`，落在
+  `situationawareness latest/outputs/`；时间戳取自导出文件名，不同样本/seed
+  不会互相覆盖
+- Stage 1/2 用 `study` 环境，Stage 3 回放与合规门禁用 `study_flask`
+  （含 flask+redis）；Step 3 是进程内 Flask 路由，无需先启动 HTTP 服务
+- 生成器按集群任务语义分配场景（`missionMeta.swarms[]`：`breakthrough`
+  固定 illegal、`detour` 由 seed 随机、未知回落 gray），旧导出无 missionMeta
+  时用 `tools/build_mission_meta_from_export.py` 桥接
+- 请求包可直接用 PyQt 回放器 `visualization/intent_replay_visualizer.py`
+  或真实 HTTP（`tools/replay_v32_http_bundle.py`，127.0.0.1:31607）逐帧回放
+- **seed 语义**：仓库冻结的基线是 seed=7 两组（`20260812_131556` 71 帧
+  923/923、`20260813_015307` 76 帧 988/988）；seed=42 的 detour 可能落入
+  不同家族，不能与 seed=7 直接比较。详见 latest `README.md` 与
+  `tools/README.md`
 
 ## 与原版的主要差异
 
