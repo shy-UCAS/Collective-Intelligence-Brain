@@ -17,3 +17,6 @@ __pycache__/
 
 # 子仓库备份压缩包（内容与 submodule 重复）
 situationawareness latest.rar
+
+# IDE 个人设置
+.vscode/settings.json
