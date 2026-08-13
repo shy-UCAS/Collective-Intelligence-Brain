@@ -1,0 +1,9 @@
+[submodule "situationawareness latest"]
+	path = situationawareness latest
+	url = git@github.com:shy-UCAS/SwarmSense.git
+[submodule "SituationAwareness Origin"]
+	path = SituationAwareness Origin
+	url = git@github.com:shy-UCAS/SituationAwareness.git
+[submodule "uav_strategy"]
+	path = uav_strategy
+	url = https://github.com/shy-UCAS/uav_strategy.git

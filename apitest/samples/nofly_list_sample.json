@@ -1,0 +1,23 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "total": 1,
+    "list": [
+      {
+        "id": "1",
+        "name": "禁飞区2",
+        "controlType": 1,
+        "zoneType": 1,
+        "lng": 116.385745,
+        "lat": 39.894678,
+        "radius": 2000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "geom": null,
+        "createTime": "2026-08-04T16:47:47.132727",
+        "updateTime": "2026-08-11T03:05:55.135792"
+      }
+    ]
+  }
+}

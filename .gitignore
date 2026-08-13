@@ -1,0 +1,19 @@
+.conda-env
+.claude/hooks/
+.claude/hooks.json
+
+# 临时目录
+.codex_tmp/
+
+# 交付产物目录（含 node_modules，不入库）
+outputs/
+
+# 运行产物（超大轨迹 JSON）
+uav_strategy_pure_py/outputs/
+uav_strategy_pure_py/outputs_opt/
+
+# Python 字节码缓存
+__pycache__/
+
+# 子仓库备份压缩包（内容与 submodule 重复）
+situationawareness latest.rar

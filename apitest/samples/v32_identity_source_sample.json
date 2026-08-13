@@ -1,0 +1,91 @@
+{
+  "realPersons": [
+    {
+      "id": "10086001",
+      "name": "张三",
+      "idCard": "110101199001011234",
+      "phone": "13800138000",
+      "unitType": 2,
+      "unit": "中科大智能科技",
+      "qualificationType": 1,
+      "certificateNo": "UAS-2024-000123",
+      "qualificationStartDate": "2024-01-01",
+      "qualificationEndDate": "2027-01-01",
+      "creditScore": "92.5",
+      "status": 1
+    },
+    {
+      "id": "10086002",
+      "name": "李四",
+      "idCard": "310104199507205678",
+      "phone": "13900139000",
+      "unitType": 1,
+      "unit": "个人",
+      "qualificationType": 2,
+      "certificateNo": "UAS-2024-000456",
+      "qualificationStartDate": "2024-06-01",
+      "qualificationEndDate": "2027-06-01",
+      "creditScore": "88.0",
+      "status": 1
+    }
+  ],
+  "dronesBySerialNos": [
+    {
+      "id": "20086001",
+      "droneId": "30086001",
+      "personId": "10086001",
+      "complianceStatus": "合规",
+      "serialNo": "DJI-M300-SN001",
+      "manufacturer": "DJI",
+      "model": "Matrice 300 RTK",
+      "droneType": 1,
+      "owner": "张三",
+      "ownerUnit": "中科大智能科技",
+      "contactPhone": "13800138000",
+      "responsiblePilot": "张三",
+      "insuranceExpireTime": "2026-12-31T23:59:59",
+      "status": 1,
+      "registerTime": "2024-01-15T09:30:00",
+      "expireTime": "2027-01-15T09:30:00"
+    }
+  ],
+  "droneWhitelistDtos": [
+    {
+      "id": "40086001",
+      "droneSn": "DJI-M300-2BF7A",
+      "model": "Matrice 300 RTK",
+      "purpose": 2,
+      "organization": "市公安局巡特警支队",
+      "responsibleName": "王五",
+      "responsiblePhone": "13700137000",
+      "effectiveDate": "2025-01-01",
+      "expireDate": "2026-12-31",
+      "status": 1,
+      "remark": "警务巡逻备案"
+    }
+  ],
+  "flightPlansBySn": [
+    {
+      "id": "50086001",
+      "planCode": "FP-2026-000001",
+      "taskNature": 1,
+      "organization": "市公安局巡特警支队",
+      "aircraftCode": "AC-M300-001",
+      "aircraftSn": "DJI-M300-2BF7A",
+      "takeoffTime": "2026-08-11T08:00:00",
+      "landingTime": "2026-08-11T10:00:00",
+      "declaredBy": "王五",
+      "declaredTime": "2026-08-10T14:00:00",
+      "pilot": "张三",
+      "taskPurpose": 0,
+      "airspaceRoute": "高新区科技园巡视航线A",
+      "flightRoute": [
+        { "lng": 117.23681, "lat": 31.82069, "alt": 80.0 },
+        { "lng": 117.24112, "lat": 31.82345, "alt": 100.0 },
+        { "lng": 117.24533, "lat": 31.82011, "alt": 80.0 }
+      ],
+      "approvalStatus": 1,
+      "remark": "日常警务巡检"
+    }
+  ]
+}

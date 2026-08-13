@@ -1,0 +1,173 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "total": 6,
+    "list": [
+      {
+        "id": "2086994528669667328",
+        "name": "新建防控区",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2086994528673861632",
+            "airspaceId": "2086994528669667328",
+            "name": "bbb",
+            "lng": 116.52636,
+            "lat": 39.990041
+          }
+        ]
+      },
+      {
+        "id": "2086795164462485504",
+        "name": "新建防控区",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2086795164466679808",
+            "airspaceId": "2086795164462485504",
+            "name": "测试",
+            "lng": 116.389961,
+            "lat": 39.90766
+          }
+        ]
+      },
+      {
+        "id": "2086742451469029376",
+        "name": "20260810",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2086742451473223681",
+            "airspaceId": "2086742451469029376",
+            "name": "绍兴 test02",
+            "lng": 116.376658,
+            "lat": 39.899957
+          },
+          {
+            "id": "2086742451473223680",
+            "airspaceId": "2086742451469029376",
+            "name": "绍兴 test01",
+            "lng": 116.386614,
+            "lat": 39.909373
+          },
+          {
+            "id": "2086742451473223682",
+            "airspaceId": "2086742451469029376",
+            "name": "绍兴 test03",
+            "lng": 116.385745,
+            "lat": 39.894678
+          }
+        ]
+      },
+      {
+        "id": "2084623383592710144",
+        "name": "空域15",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1100,
+        "altitudeMin": 110,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2084623383609487360",
+            "airspaceId": "2084623383592710144",
+            "name": "设施15",
+            "lng": 116.423274,
+            "lat": 39.502762
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "空域100",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1100,
+        "altitudeMin": 110,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2",
+            "airspaceId": "2",
+            "name": "string",
+            "lng": 116.30050007,
+            "lat": 55.95809374
+          }
+        ]
+      },
+      {
+        "id": "1",
+        "name": "空域1",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 500,
+        "alertRadius": 1000,
+        "warningRadius": 1500,
+        "altitudeMax": 1500,
+        "altitudeMin": 880,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "1",
+            "airspaceId": "1",
+            "name": "点位1",
+            "lng": 116.569937,
+            "lat": 39.664991
+          }
+        ]
+      }
+    ]
+  }
+}
