@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: 950b4dff-8a24-40a4-84e8-afd598891413
+
+localResources:
+  specs:
+    - ../situationawareness latest/文档/openapi-situation-analyze-v3.2.yaml
