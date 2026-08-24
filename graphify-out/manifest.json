@@ -1,0 +1,72 @@
+{
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\__init__.py": {
+    "mtime": 1786499976.0,
+    "ast_hash": "64190916bb33e808549d7f87cbfe84ca",
+    "semantic_hash": "64190916bb33e808549d7f87cbfe84ca"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\airspace_analysis.py": {
+    "mtime": 1787280132.0,
+    "ast_hash": "520e662cf2cce4388ea4566636104f6c",
+    "semantic_hash": "520e662cf2cce4388ea4566636104f6c"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\data\\default_map_agents02_apifox.json": {
+    "mtime": 1787541089.362726,
+    "ast_hash": "43bbb49e26d944aadbd412770e26d880",
+    "semantic_hash": "43bbb49e26d944aadbd412770e26d880"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\default_map.py": {
+    "mtime": 1787368794.0,
+    "ast_hash": "a6b7453c4602e002f2abb2499932df85",
+    "semantic_hash": "a6b7453c4602e002f2abb2499932df85"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\default_map_refresh.py": {
+    "mtime": 1787368928.0,
+    "ast_hash": "f87a3d8cb1170df78f6c569cf03f4191",
+    "semantic_hash": "f87a3d8cb1170df78f6c569cf03f4191"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\defense_analysis.py": {
+    "mtime": 1786352114.0,
+    "ast_hash": "a849a8ff15fd17082cedbd4580767387",
+    "semantic_hash": "a849a8ff15fd17082cedbd4580767387"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\engine.py": {
+    "mtime": 1787280132.0,
+    "ast_hash": "c3c72fa6a25a9b73eb3b19e5229fa37b",
+    "semantic_hash": "c3c72fa6a25a9b73eb3b19e5229fa37b"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\event_mapper.py": {
+    "mtime": 1787220414.0,
+    "ast_hash": "77e37709d4ca1eb4f7254fbdb21a3454",
+    "semantic_hash": "77e37709d4ca1eb4f7254fbdb21a3454"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\intent_rules.py": {
+    "mtime": 1786557582.0,
+    "ast_hash": "db536603ec31dea4bfa39e10c7e8c679",
+    "semantic_hash": "db536603ec31dea4bfa39e10c7e8c679"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\intention_catalog.py": {
+    "mtime": 1786094600.0,
+    "ast_hash": "c6f2962dd08ce1f06c983454ea5fcacd",
+    "semantic_hash": "c6f2962dd08ce1f06c983454ea5fcacd"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\legacy_adapter.py": {
+    "mtime": 1787239142.0,
+    "ast_hash": "68ac7e3f1fb9959e22eab5d5a660c755",
+    "semantic_hash": "68ac7e3f1fb9959e22eab5d5a660c755"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\service.py": {
+    "mtime": 1786524174.0,
+    "ast_hash": "001afadf25ec75994a8c4deba1455107",
+    "semantic_hash": "001afadf25ec75994a8c4deba1455107"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\v32_gateway.py": {
+    "mtime": 1787220416.0,
+    "ast_hash": "d533a2edebee24bdacdde0354990c9b1",
+    "semantic_hash": "d533a2edebee24bdacdde0354990c9b1"
+  },
+  "F:\\CASIA\\Drone Swarm Situational Awareness Algorithm\\Collective Intelligence Brain\\situationawareness latest\\situation_judgment\\vectorized_features.py": {
+    "mtime": 1786606298.0,
+    "ast_hash": "cc87609953d5d17c42ff53db5f4e159a",
+    "semantic_hash": "cc87609953d5d17c42ff53db5f4e159a"
+  }
+}
