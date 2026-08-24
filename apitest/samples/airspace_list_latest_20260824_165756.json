@@ -1,0 +1,84 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "total": 3,
+    "list": [
+      {
+        "id": "2091780433062268928",
+        "name": "绍兴市人民政府",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2091780433066463232",
+            "airspaceId": "2091780433062268928",
+            "name": "绍兴市人民政府",
+            "lng": 120.579425,
+            "lat": 30.053349
+          }
+        ]
+      },
+      {
+        "id": "2091775038755311616",
+        "name": "测试",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2091775038759505920",
+            "airspaceId": "2091775038755311616",
+            "name": "北京市人民政府",
+            "lng": 116.718425,
+            "lat": 39.90384
+          }
+        ]
+      },
+      {
+        "id": "2090661798751113216",
+        "name": "绍兴防控区",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 1000,
+        "alertRadius": 2000,
+        "warningRadius": 3000,
+        "altitudeMax": 1000,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2090661798776279040",
+            "airspaceId": "2090661798751113216",
+            "name": "越城区巡特警支队",
+            "lng": 120.568095,
+            "lat": 29.932707
+          }
+        ]
+      }
+    ]
+  }
+}
