@@ -8,6 +8,9 @@
 # 交付产物目录（含 node_modules，不入库）
 outputs/
 
+# PPT 工程产物目录（含 pptx 与导出图，约 43MB，不入库）
+projects/
+
 # 运行产物（超大轨迹 JSON）
 uav_strategy_pure_py/outputs/
 uav_strategy_pure_py/outputs_opt/
