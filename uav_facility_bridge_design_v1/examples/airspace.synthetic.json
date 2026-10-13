@@ -1,0 +1,37 @@
+{
+  "code": 0,
+  "message": "synthetic fixture, not operational data",
+  "data": {
+    "total": 1,
+    "list": [
+      {
+        "id": "SPACE-EXAMPLE",
+        "name": "合成测试区域",
+        "warningRadius": 300.0,
+        "alertRadius": 200.0,
+        "countermeasureRadius": 100.0,
+        "warningGeom": null,
+        "alertGeom": null,
+        "countermeasureGeom": null,
+        "altitudeMin": 0,
+        "altitudeMax": 500,
+        "facilityList": [
+          {
+            "id": "F-A",
+            "airspaceId": "SPACE-EXAMPLE",
+            "name": "合成设施A",
+            "lng": 0.02,
+            "lat": 0.001
+          },
+          {
+            "id": "F-B",
+            "airspaceId": "SPACE-EXAMPLE",
+            "name": "合成设施B",
+            "lng": 0.001,
+            "lat": 0.02
+          }
+        ]
+      }
+    ]
+  }
+}

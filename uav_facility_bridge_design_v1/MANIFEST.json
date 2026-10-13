@@ -1,0 +1,105 @@
+{
+  "designVersion": "1.0",
+  "files": [
+    {
+      "path": "CHECK_REPORT.md",
+      "bytes": 1357,
+      "sha256": "767971a16f78e00dfd4243ebf5e6ea3a404d1eae04f262d1b0c794b8d84ac609"
+    },
+    {
+      "path": "CODEX_TASKS.md",
+      "bytes": 5357,
+      "sha256": "6d3f4f0b5dd23ac9fcb56c63a2a75a5834f4a2cde06deb928469a1a447d7f8c3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2586,
+      "sha256": "503d0ec7731555d99f0af1fe135fa84b9e710618cff843e33919db92859593a0"
+    },
+    {
+      "path": "checks/check_contracts.py",
+      "bytes": 6712,
+      "sha256": "d4eba503c0acf957c53034f61109d26ceaa5fa0385fdf43d1899272b05d95d00"
+    },
+    {
+      "path": "checks/check_math.py",
+      "bytes": 7466,
+      "sha256": "46784dae15dfb546aef9b01399b3804e5ce40a42881410cd733e06749bcb9b6f"
+    },
+    {
+      "path": "checks/contracts_report.json",
+      "bytes": 1149,
+      "sha256": "5a280800fa592a0492a6e70645b608f8f115b0b3c1ef17e222220954935fa97f"
+    },
+    {
+      "path": "checks/math_report.json",
+      "bytes": 1269,
+      "sha256": "8ced18f061cbfdfdd4edbf3ffbf7fa27d7cc4aa070ec42bf61f109047b3383a6"
+    },
+    {
+      "path": "config/config.example.yaml",
+      "bytes": 3824,
+      "sha256": "34485f3e6021e168666b742f0ed8f52aa42504f7a2693e5c502016bdb1e41b33"
+    },
+    {
+      "path": "docs/DESIGN.md",
+      "bytes": 37303,
+      "sha256": "e5e623a32deaf0dd105c4ab5aedff4264c5d017c58e8133d72a38fe636c9038e"
+    },
+    {
+      "path": "docs/MATH_AUDIT.md",
+      "bytes": 7740,
+      "sha256": "52f3d2006ef663c2be07906227c213a74adb3a4c07d2215ad2baa0e1b9bedd10"
+    },
+    {
+      "path": "docs/算法实现设计规范_v1.0.pdf",
+      "bytes": 376363,
+      "sha256": "cdc5d61ddcbe6714102fe1a265e1fbf979d88578ee6b5e5906441802a59355d1"
+    },
+    {
+      "path": "examples/airspace.synthetic.json",
+      "bytes": 852,
+      "sha256": "8ab679dd5c05516bdea55549a51eca8c98ffe0ee1c52b576559060453bf6ce4d"
+    },
+    {
+      "path": "examples/groups.synthetic.json",
+      "bytes": 292,
+      "sha256": "738e728a33bfefc506a869c64cadbdd3b7804cc57681dba9f04349fe1e0eeeeb"
+    },
+    {
+      "path": "examples/output.structure-only.json",
+      "bytes": 4259,
+      "sha256": "fc21b17ba9a265fcd63d9cba39716e1836361ed58b7215034c5775c03fed3ad0"
+    },
+    {
+      "path": "examples/trajectory.synthetic.json",
+      "bytes": 3139,
+      "sha256": "497f82e46d634d45e041197ea09bfccb7785487df932550dfb56214eb013d27b"
+    },
+    {
+      "path": "requirements-checks.txt",
+      "bytes": 99,
+      "sha256": "ffa3f6ed796ff606e59d923a1aa3e1d9beba5ce3982b8c836bb8665154ace3de"
+    },
+    {
+      "path": "schemas/airspace.schema.json",
+      "bytes": 3496,
+      "sha256": "aa5069a887801350be9176ebe9e65803801f2bf1da095bafb484176fd23a2954"
+    },
+    {
+      "path": "schemas/groups.schema.json",
+      "bytes": 972,
+      "sha256": "5d331d0803b8ac2058dabe6501f59092f9faec30d53fc1cc3a970543b8933f9c"
+    },
+    {
+      "path": "schemas/output.schema.json",
+      "bytes": 9056,
+      "sha256": "5e16e4032ed44b7ec546df3e9585dbee5f20c45a1c5a55bc5b00d39d2e9ef524"
+    },
+    {
+      "path": "schemas/trajectory.schema.json",
+      "bytes": 1940,
+      "sha256": "481d900ba5562f8f118f27a7e97d08bff1efa64b6e1069a735637856eff86d1e"
+    }
+  ]
+}

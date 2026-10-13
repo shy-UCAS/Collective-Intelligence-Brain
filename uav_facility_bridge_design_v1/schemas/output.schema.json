@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "设施终端趋向推断结果 v1，独立新字段，不覆盖旧ETA",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "algorithmVersion",
+    "configVersion",
+    "requestId",
+    "sourceSnapshotTime",
+    "asOfTimeMs",
+    "probabilitySemantics",
+    "calibrationStatus",
+    "groups"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "facility-arrival-inference-v1"
+    },
+    "algorithmVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "configVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requestId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sourceSnapshotTime": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "asOfTimeMs": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "probabilitySemantics": {
+      "const": "MODEL_POSTERIOR_WITHIN_HORIZON"
+    },
+    "calibrationStatus": {
+      "enum": [
+        "UNCALIBRATED",
+        "CALIBRATED_ON_VALIDATION_DATA"
+      ]
+    },
+    "candidateSetVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "horizonSeconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "groupId",
+          "memberIds",
+          "groupSize",
+          "evidenceScope",
+          "status",
+          "qualityFlags",
+          "unresolvedModelProbability",
+          "facilityPredictions"
+        ],
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "memberIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "groupSize": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evidenceScope": {
+            "const": "GROUP"
+          },
+          "status": {
+            "enum": [
+              "OK_MODEL_OUTPUT",
+              "INSUFFICIENT_EVIDENCE",
+              "MODEL_MISMATCH",
+              "INVALID_INPUT",
+              "NO_CANDIDATES",
+              "CONFIG_REQUIRED",
+              "RESOURCE_LIMIT"
+            ]
+          },
+          "qualityFlags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "unresolvedModelProbability": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "facilityPredictions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "facilityId",
+                "airspaceIds",
+                "destinationProbability",
+                "status",
+                "arrival",
+                "regionFirstEntry"
+              ],
+              "properties": {
+                "facilityId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "airspaceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                },
+                "destinationProbability": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "status": {
+                  "enum": [
+                    "OK_MODEL_OUTPUT",
+                    "INSUFFICIENT_EVIDENCE",
+                    "MODEL_MISMATCH",
+                    "INVALID_INPUT",
+                    "NO_CANDIDATES",
+                    "CONFIG_REQUIRED",
+                    "RESOURCE_LIMIT",
+                    "NOT_EVALUATED",
+                    "LOW_DESTINATION_SUPPORT"
+                  ]
+                },
+                "arrival": {
+                  "type": "object",
+                  "required": [
+                    "event",
+                    "subject",
+                    "conditionalOnFacilityId",
+                    "status",
+                    "etaMedianSeconds",
+                    "etaMapSeconds",
+                    "intervalSeconds",
+                    "intervalMass",
+                    "timeDistribution"
+                  ],
+                  "properties": {
+                    "event": {
+                      "const": "GROUP_TERMINAL_STATE"
+                    },
+                    "subject": {
+                      "const": "GROUP_JOINT_STATE"
+                    },
+                    "conditionalOnFacilityId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "status": {
+                      "enum": [
+                        "ESTIMATED",
+                        "INSUFFICIENT_EVIDENCE",
+                        "LOW_DESTINATION_SUPPORT",
+                        "HORIZON_EDGE_MASS",
+                        "MULTIMODAL",
+                        "CONFIG_REQUIRED",
+                        "MODEL_MISMATCH",
+                        "NOT_EVALUATED"
+                      ]
+                    },
+                    "etaMedianSeconds": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "minimum": 0
+                    },
+                    "etaMapSeconds": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "minimum": 0
+                    },
+                    "intervalSeconds": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "items": {
+                            "type": "number",
+                            "minimum": 0
+                          }
+                        }
+                      ]
+                    },
+                    "intervalMass": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "exclusiveMaximum": 1
+                    },
+                    "timeDistribution": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "lowerBoundSeconds",
+                          "upperBoundSeconds",
+                          "representativeSeconds",
+                          "conditionalMass"
+                        ],
+                        "properties": {
+                          "lowerBoundSeconds": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "upperBoundSeconds": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "representativeSeconds": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "conditionalMass": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "regionFirstEntry": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "NOT_IMPLEMENTED",
+                        "REGION_MAPPING_UNCONFIRMED"
+                      ]
+                    },
+                    "reason": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$comment": "概率总和、条件时间质量总和、群大小、时间单元有序和null语义见checks/check_contracts.py。schema验证不能代替算法验证。"
+}

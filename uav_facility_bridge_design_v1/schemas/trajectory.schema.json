@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "轨迹子模块输入结构契约，不替代既有HTTP完整请求校验",
+  "type": "object",
+  "required": [
+    "uavs_coords_str"
+  ],
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshotTime": {
+      "type": "string"
+    },
+    "uavs_coords_str": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "minLength": 1
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "lngs",
+          "lats",
+          "ts"
+        ],
+        "properties": {
+          "lngs": {
+            "type": "array",
+            "minItems": 6,
+            "items": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "lats": {
+            "type": "array",
+            "minItems": 6,
+            "items": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            }
+          },
+          "alts": {
+            "type": "array",
+            "minItems": 6,
+            "items": {
+              "type": "number"
+            }
+          },
+          "ts": {
+            "type": "array",
+            "minItems": 6,
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "trackQuality": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "targetAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$comment": "等长、严格递增、有限数、时间跨度需由语义校验器完成。alts为可选。对公共API的其他必填字段仍由原接口负责。"
+}

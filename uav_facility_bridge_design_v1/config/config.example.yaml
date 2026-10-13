@@ -1,0 +1,106 @@
+# 开发示例，不是已标定的生产配置。
+# paper_reference 中的数字来源于原论文，其余数字均为本规范的开发占位。
+version: bridge-config-example-v1
+release_mode: PROTOTYPE_ONLY
+calibration_status: UNCALIBRATED
+execution_mode: SNAPSHOT_REBUILD
+
+input:
+  validation_mode: STRICT_API
+  min_track_points: 6                 # 既有v3.2输入约束
+  coordinate_reference: null          # 必须根据实际系统配置，禁止从坐标值猜测
+  local_frame_origin: null            # 或复用现有明确的区域米制坐标框架
+  max_window_seconds: 120             # 既有文档建议，并非预测所需最优窗口
+  max_window_points: 240
+  altitude_mode: AUXILIARY_ONLY
+  region_radius_unit: null            # 区域扩展前确认
+  region_mapping_mode: UNCONFIRMED
+  group_membership_source: UPSTREAM
+  missing_member_policy: GROUP_INVALID
+
+observations:
+  mode: ASYNCHRONOUS_POSITION_ONLY
+  initialization_prefix_points: 3     # 开发默认，需保留后续评价量测
+  use_derived_velocity_as_independent_measurement: false
+  measurement_covariance_xy_m2: null  # 生产必须标定，不能自动挪用论文方差
+  stale_threshold_seconds: null
+  min_effective_span_seconds: null
+
+model:
+  state_coordinates: PHYSICAL_POSITION_VELOCITY
+  model_family: PAPER_SDE_AFFINE_TRANSFORM
+  nonlinear_transition: FROZEN_FORCE_LOCAL_GAUSSIAN
+  independent_process_noise: true     # 明确的工程实例化
+  potential_mode: PAPER_POTENTIAL_WITH_EXPLICIT_DOMAIN_CHECK
+  potential_regularization: null     # 开启正则化前填写ADR，不能静默截断
+  alpha: null
+  beta: null
+  gamma: null
+  sigma_xy: null
+  equilibrium_distance_m: null
+  boundary_distance_m: null
+
+terminal:
+  event: GROUP_TERMINAL_STATE
+  subject: GROUP_JOINT_STATE
+  mean_velocity_xy_mps: null          # 不无条件假定到达时静止
+  covariance_per_member_physical: null
+  position_tolerance_semantics: GAUSSIAN_NOT_HARD_RADIUS
+  region_first_entry_enabled: false
+
+prior:
+  kind: FIXED_HORIZON_CONDITIONAL_MODEL_SET
+  horizon_seconds: 600                # 开发示例，不是通用最优或平台上限
+  earliest_terminal_seconds: 1
+  time_cells: 60
+  quadrature: MIDPOINT_CELL_MASS
+  facility_weighting: UNIFORM_WITHIN_CANDIDATE_SET
+  unresolved_prior_mass: 0.5          # 开发占位，不是测得的未知概率
+  data_adaptive_time_concentration: false
+
+free_model:
+  family: UNCONDITIONED_CV_WHITE_ACCELERATION
+  process_noise_intensity_xy: null
+  same_observation_stream_as_facility_models: true
+
+reachability:
+  mode: DISABLED_PENDING_DEFINITION
+  overwrite_base_posterior: false
+
+output:
+  destination_semantics: MODEL_POSTERIOR_WITHIN_HORIZON
+  eta_event: GROUP_TERMINAL_STATE
+  eta_summary: MEDIAN
+  interval_mass: 0.9                  # 名义区间质量，不代表实测覆盖率
+  include_time_distribution: true
+  legacy_eta_overwrite: false
+  group_evidence_scope: GROUP
+
+quality:
+  suppress_eta_if_low_support: true
+  destination_support_threshold: null
+  edge_mass_threshold: null
+  innovation_mismatch_threshold: null
+  review_required_until_calibrated: true
+
+paper_reference:
+  source: Xue_et_al_2023_sections_3_1_3_2
+  alpha: 0.06
+  beta: 0.06
+  gamma: 0.04
+  sigma_xy: [3.0, 3.0]
+  d_r_m: 15.0
+  d_m_m: 30.0
+  R11: 4.0
+  R12: 3.0
+  R21: 4.0
+  R22: 1.0
+  initial_covariance_diag_original_state: [100.0, 10.0, 100.0, 10.0]
+  terminal_covariance_diag_original_state: [100.0, 5.0, 100.0, 5.0]
+  terminal_velocity_original_state: [0.0, 0.0]
+  measurement_covariance_xy_m2: [[10.0, 0.0], [0.0, 10.0]]
+  reachability_delta: 75.0
+  reachability_alpha_m: 0.8
+  note: >-
+    仅用于核验论文设置；原状态协方差转到物理速度坐标时必须连同交叉项变换。
+    不自动填补上方生产配置中的null，不将开发占位参数当作实测参数。

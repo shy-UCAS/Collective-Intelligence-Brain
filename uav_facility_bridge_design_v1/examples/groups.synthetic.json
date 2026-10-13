@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "groupId": "SNAPSHOT-G1",
+      "memberIds": [
+        "UAV-A",
+        "UAV-B"
+      ],
+      "membershipValidFromMs": null
+    },
+    {
+      "groupId": "SNAPSHOT-G2",
+      "memberIds": [
+        "UAV-C"
+      ],
+      "membershipValidFromMs": null
+    }
+  ]
+}

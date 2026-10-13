@@ -1,0 +1,58 @@
+{
+  "scope": "Proposed schema and selected semantic checks only; not a full service test",
+  "package": {
+    "jsonschema": "4.26.0"
+  },
+  "checks": [
+    {
+      "check": "trajectory_schema_and_fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "airspace_schema_and_fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "groups_schema_and_fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "output_schema_and_fixture",
+      "status": "PASS"
+    },
+    {
+      "check": "valid_track_semantics",
+      "status": "PASS"
+    },
+    {
+      "check": "valid_group_semantics",
+      "status": "PASS"
+    },
+    {
+      "check": "valid_output_semantics",
+      "status": "PASS"
+    },
+    {
+      "check": "duplicate_timestamp_rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "unequal_lengths_rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "overlapping_groups_rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "unsupported_eta_rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "optional_altitudes_supported",
+      "status": "PASS"
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}

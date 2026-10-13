@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "facility-arrival-inference-v1",
+  "algorithmVersion": "design-fixture-not-predictor",
+  "configVersion": "bridge-config-example-v1",
+  "requestId": "synthetic-schema-example",
+  "sourceSnapshotTime": "2026-01-01T00:00:09+00:00",
+  "asOfTimeMs": null,
+  "probabilitySemantics": "MODEL_POSTERIOR_WITHIN_HORIZON",
+  "calibrationStatus": "UNCALIBRATED",
+  "candidateSetVersion": "synthetic-facilities-v1",
+  "horizonSeconds": 600,
+  "groups": [
+    {
+      "groupId": "SNAPSHOT-G1",
+      "memberIds": [
+        "UAV-A",
+        "UAV-B"
+      ],
+      "groupSize": 2,
+      "evidenceScope": "GROUP",
+      "status": "CONFIG_REQUIRED",
+      "qualityFlags": [
+        "COORDINATE_REFERENCE_UNCONFIRMED",
+        "TERMINAL_PROFILE_UNCALIBRATED"
+      ],
+      "unresolvedModelProbability": null,
+      "facilityPredictions": [
+        {
+          "facilityId": "F-A",
+          "airspaceIds": [
+            "SPACE-EXAMPLE"
+          ],
+          "destinationProbability": null,
+          "status": "CONFIG_REQUIRED",
+          "arrival": {
+            "event": "GROUP_TERMINAL_STATE",
+            "subject": "GROUP_JOINT_STATE",
+            "conditionalOnFacilityId": "F-A",
+            "status": "CONFIG_REQUIRED",
+            "etaMedianSeconds": null,
+            "etaMapSeconds": null,
+            "intervalSeconds": null,
+            "intervalMass": 0.9,
+            "timeDistribution": []
+          },
+          "regionFirstEntry": {
+            "status": "NOT_IMPLEMENTED",
+            "reason": "此示例仅展示输出结构，不是算法预测。"
+          }
+        },
+        {
+          "facilityId": "F-B",
+          "airspaceIds": [
+            "SPACE-EXAMPLE"
+          ],
+          "destinationProbability": null,
+          "status": "CONFIG_REQUIRED",
+          "arrival": {
+            "event": "GROUP_TERMINAL_STATE",
+            "subject": "GROUP_JOINT_STATE",
+            "conditionalOnFacilityId": "F-B",
+            "status": "CONFIG_REQUIRED",
+            "etaMedianSeconds": null,
+            "etaMapSeconds": null,
+            "intervalSeconds": null,
+            "intervalMass": 0.9,
+            "timeDistribution": []
+          },
+          "regionFirstEntry": {
+            "status": "NOT_IMPLEMENTED",
+            "reason": "此示例仅展示输出结构，不是算法预测。"
+          }
+        }
+      ]
+    },
+    {
+      "groupId": "SNAPSHOT-G2",
+      "memberIds": [
+        "UAV-C"
+      ],
+      "groupSize": 1,
+      "evidenceScope": "GROUP",
+      "status": "CONFIG_REQUIRED",
+      "qualityFlags": [
+        "COORDINATE_REFERENCE_UNCONFIRMED",
+        "TERMINAL_PROFILE_UNCALIBRATED"
+      ],
+      "unresolvedModelProbability": null,
+      "facilityPredictions": [
+        {
+          "facilityId": "F-A",
+          "airspaceIds": [
+            "SPACE-EXAMPLE"
+          ],
+          "destinationProbability": null,
+          "status": "CONFIG_REQUIRED",
+          "arrival": {
+            "event": "GROUP_TERMINAL_STATE",
+            "subject": "GROUP_JOINT_STATE",
+            "conditionalOnFacilityId": "F-A",
+            "status": "CONFIG_REQUIRED",
+            "etaMedianSeconds": null,
+            "etaMapSeconds": null,
+            "intervalSeconds": null,
+            "intervalMass": 0.9,
+            "timeDistribution": []
+          },
+          "regionFirstEntry": {
+            "status": "NOT_IMPLEMENTED",
+            "reason": "此示例仅展示输出结构，不是算法预测。"
+          }
+        },
+        {
+          "facilityId": "F-B",
+          "airspaceIds": [
+            "SPACE-EXAMPLE"
+          ],
+          "destinationProbability": null,
+          "status": "CONFIG_REQUIRED",
+          "arrival": {
+            "event": "GROUP_TERMINAL_STATE",
+            "subject": "GROUP_JOINT_STATE",
+            "conditionalOnFacilityId": "F-B",
+            "status": "CONFIG_REQUIRED",
+            "etaMedianSeconds": null,
+            "etaMapSeconds": null,
+            "intervalSeconds": null,
+            "intervalMass": 0.9,
+            "timeDistribution": []
+          },
+          "regionFirstEntry": {
+            "status": "NOT_IMPLEMENTED",
+            "reason": "此示例仅展示输出结构，不是算法预测。"
+          }
+        }
+      ]
+    }
+  ]
+}

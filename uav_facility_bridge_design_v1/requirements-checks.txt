@@ -1,0 +1,4 @@
+# Only for the independent specification checks; not a production lockfile.
+numpy
+scipy
+jsonschema

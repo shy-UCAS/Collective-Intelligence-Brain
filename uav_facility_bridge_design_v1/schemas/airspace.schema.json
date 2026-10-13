@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "重点设施Airspace输入结构契约",
+  "type": "object",
+  "required": [
+    "data"
+  ],
+  "properties": {
+    "code": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "list"
+      ],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "facilityList"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string"
+              },
+              "facilityList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "lng",
+                    "lat"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "airspaceId": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "lng": {
+                      "type": "number",
+                      "minimum": -180,
+                      "maximum": 180
+                    },
+                    "lat": {
+                      "type": "number",
+                      "minimum": -90,
+                      "maximum": 90
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "warningRadius": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "alertRadius": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "countermeasureRadius": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "warningGeom": {
+                "$comment": "仅透传；样例未确定几何模式，不在此猜测GeoJSON或WKT。"
+              },
+              "alertGeom": {
+                "$comment": "仅透传；样例未确定几何模式，不在此猜测GeoJSON或WKT。"
+              },
+              "countermeasureGeom": {
+                "$comment": "仅透传；样例未确定几何模式，不在此猜测GeoJSON或WKT。"
+              },
+              "altitudeMin": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "altitudeMax": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "$comment": "半径单位、坐标系、父空域几何与各设施映射由部署配置确认。"
+}

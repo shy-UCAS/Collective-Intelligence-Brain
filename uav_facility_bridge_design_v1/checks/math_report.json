@@ -1,0 +1,56 @@
+{
+  "scope": "Local algebra only; not a complete inference or accuracy test",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "checks": [
+    {
+      "check": "test_physical_state_transform",
+      "status": "PASS",
+      "elapsedSeconds": 0.009814
+    },
+    {
+      "check": "test_covariance_transform",
+      "status": "PASS",
+      "elapsedSeconds": 0.000267
+    },
+    {
+      "check": "test_single_member_and_singular_matrix",
+      "status": "PASS",
+      "elapsedSeconds": 0.001043
+    },
+    {
+      "check": "test_mean_sign_against_sde",
+      "status": "PASS",
+      "elapsedSeconds": 0.000568
+    },
+    {
+      "check": "test_affine_integral_with_singular_a",
+      "status": "PASS",
+      "elapsedSeconds": 0.00336
+    },
+    {
+      "check": "test_noise_integral_and_semigroup",
+      "status": "PASS",
+      "elapsedSeconds": 0.002565
+    },
+    {
+      "check": "test_bridge_gaussian_equivalence",
+      "status": "PASS",
+      "elapsedSeconds": 0.004849
+    },
+    {
+      "check": "test_bridge_endpoint_limit",
+      "status": "PASS",
+      "elapsedSeconds": 0.000177
+    },
+    {
+      "check": "test_time_prior_mass_conservation",
+      "status": "PASS",
+      "elapsedSeconds": 0.000478
+    }
+  ],
+  "passed": 9,
+  "total": 9
+}
