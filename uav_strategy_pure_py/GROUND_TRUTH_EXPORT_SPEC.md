@@ -152,8 +152,11 @@ def build_ground_truth(active_agents, raw_trajs, planned_routes,
         members = swarm.get("memberIds") or []
         target = swarm.get("target")
 
-        # 目标只有在 facilities_str 里能解析为设施时才算目的地
-        dest_id = target if target in facilities_str else None
+        # 目标只有在 facilities_str 里能解析为设施时才算目的地。
+        # 必须先判字符串：坐标形态的 target 是 list，直接写 `target in dict`
+        # 会抛 TypeError: unhashable type: 'list'
+        dest_id = (target if isinstance(target, str) and target in facilities_str
+                   else None)
         dest_ll = facilities_str.get(dest_id) if dest_id else None
 
         # 逐成员抵达时刻：完整航迹的末点 simTimeMs
@@ -245,11 +248,15 @@ final_data = {
 | 取值 | 触发条件 | 下游处理 |
 |---|---|---|
 | `TRUNCATED` | 撞上 `--max-rounds`，或该群有成员 `is_finished == false` | 整条排除出评测；`arrivalTimeMs` 置 `null` |
-| `DEGENERATE_ROUTE` | 计划末点与起点重合（`_plan_point_target` 兜底 `planning_lib.py:284` 与 `plan_escape` 的圈外分支 `:228-231` 都返回 `[start, start]`） | 整条排除；这类样本连入模最小点数都过不了 |
+| `DEGENERATE_ROUTE` | 声明意图是"要移动"，但**实际飞出的航迹**不足 2 个不同位置点 | 整条排除；这类样本连入模最小点数都过不了 |
 | `INCOMPLETE_ROUTE` | `plannedRoutes[].complete == false` | 整条排除 |
 | `UNRESOLVED_TARGET` | `target` 是设施类型名、坐标或 `aggregate_point`，不是具名设施 | 保留作 `NO_DESTINATION` 候选，但不可用作具名目的地正例 |
 | `ENDPOINT_MISMATCH` | `routeEndDistanceToDestinationM > ROUTE_END_TOLERANCE_M` | 保留但标记：说明"路线终点即设施"这一假设在本场景不成立 |
 | `VALID` | 以上均未触发 | 可进入标定与评测 |
+
+> **为什么"要移动"这个前提不能省。**
+> 单看几何无法区分"退化"和"刻意静止"。`execute_loiter` 的计划就是 `[pos, pos]`（`planning_lib.py:329-332`），它刻意不动，是 M3 最需要的悬停样本；而 `plan_escape` 在起点位于防护圈外时的分支（`planning_lib.py:228-231`）与 `_plan_point_target` 的兜底（`planning_lib.py:284`）同样产出原地不动的航迹。三者的"实际航迹不同位置点数"都是 1。
+> 区分它们只能靠**声明意图**：`action_class == "support"` 且 `action == "standby"` 判为 `LOITER`（有效，保留）；其余"声明要移动却一步没挪"的判为 `DEGENERATE_ROUTE`（排除）。
 
 ### 5.3 `ENDPOINT_MISMATCH` 顺便替你验证一个未证假设
 
@@ -281,7 +288,7 @@ final_data = {
 
 ### 03 补负例场景
 
-在 digraph attrs 里加入没有对应具名设施的节点与边，或启用现成但未接线的 `orbit` / `loiter` / `escape`。
+在 digraph attrs 里加入没有对应具名设施的节点与边，或启用现成但未接线的 `orbit` / `loiter` / `escape`。具体写法见 §9。
 
 **验收**：至少一个群产出 `outcome: NO_DESTINATION` 且 `truthStatus: VALID`。
 
@@ -298,3 +305,176 @@ final_data = {
 ## 8. 不要越界宣称
 
 这套数据是确定性脚本仿真，飞行平滑、任务单一，适合标定内核与跑通契约，**不足以支撑真实场景准确率结论**。规范要求：未通过独立动态轨迹验证前，只允许影子运行或人工复核。真值块让这件事可被验证，但不改变这条边界。
+
+---
+
+## 9. digraph 场景清单
+
+补负例场景不需要新写规划器。生成器本来就是按 6 种任务类型建的，`height_range_value_set` 里 `orbit` / `loiter` / `routine` 的高度档位都已配好（`uav_agent.py:382-389`），只是当前 digraph 只用了 `breakthrough` 与 `detour`。
+
+### 9.1 现有可用的规划开关
+
+| 开关 | 取值 | 规划入口 | 产出 outcome |
+|---|---|---|---|
+| `order_type` | `breakthrough` / `singleton` | 直线飞向 `target` | `ARRIVED` |
+| | `detour` | 沿设施周长 `move_along_border` | `ARRIVED_AT_PERIMETER` |
+| | `routine` | 同 breakthrough，换高度档 | `ARRIVED` |
+| | `escape` | 圈内 → 圈边界（向外） | `DEPARTED` |
+| `action_class` | `recon` | `execute_orbit`（绕 80 m 圆、8 步） | `ORBIT` |
+| | `support` + `action: "standby"` | `execute_loiter`（原地不动） | `LOITER` |
+| | `assault` / `maneuver` | `execute_breakthrough` | `ARRIVED` |
+| `order_mode` | `aggregate` + `target: "aggregate_point"` | 多群汇合到集结点 | 并群样本 |
+| `target` 形态 | 具名设施 | `get_target_location` | — |
+| | 设施类型名 `antiair` / `headquarter` / `prober` | `pick_random_target` 随机挑一个 | — |
+| | 坐标 `[lng, lat]` | `planbreakthrough_target_location` | — |
+
+### 9.2 三个必须先理解的机制
+
+**(a) 节点 id 只是标签，路线由 `target` 决定。** `extract_uav_trajectories`（`mission_orchestrator.py:312`）把 `from`/`to` 当作不透明标签，只用于 `segment_key`、群归属和图链遍历。真正的几何来自 `attrs.target`（`planning_lib._plan_point_target`，`planning_lib.py:275`）。所以新增场景不需要为新节点配坐标。
+
+**(b) 但起点是随机撒的，无法按场景控制。** `uav_agent.py:76-85`：未显式传 `init_pos` 时，在 `init_loc3`–`init_loc4` 为直径的圆上随机取一点。实测该圆直径 2169 m、半径 1084 m、圆心 (116.3580, 39.8780)。**任何依赖起点几何的场景（路过、已在圈内）都只能统计其分布，不能精确构造。**
+
+**(c) `order_mode` 与 `target` 是必填键。** `uav_agent.py:240-241` 用直接下标读取（`digraph_attr["attrs"]["order_mode"]`），缺键会抛 `KeyError`。loiter 要写 `"target": null`，不能省略这个键。
+
+**(d) 新增场景要同时改两处。** 除了 digraph attrs 文件，还要把新场景的 `from` 节点加进 `--key-paths`（默认 `[[0,3],[1,4],[2,5]]`），因为 `extract_uav_trajectories` 只从 `key_paths` 的起始节点开始遍历（`mission_orchestrator.py:324`）。
+
+### 9.3 A 档：零代码，只改配置
+
+**A1 · `NO_DESTINATION`（最重要）** —— H₀ 替代模型的唯一标定来源。用坐标形态的 target，落在无设施区域：
+
+```json
+{
+  "from": 6, "to": 9,
+  "attrs": {"order_mode": "singleton", "order_type": "routine",
+            "target": [116.4000, 39.8600], "fleet_no": "sx4.1"},
+  "members_num": 20
+}
+```
+
+机制：`_is_coordinate_target` 为真 → `planbreakthrough_target_location` 直接飞向该坐标（`planning_lib.py:102`）。因为是真实飞行而非退化路径，轨迹有效；`target` 不是具名设施，真值块给出 `destinationFacilityId: null`、`outcome: NO_DESTINATION`。
+
+**A2 · `LOITER`（悬停）** —— 专测"距离 ÷ 速度"类方法失效：
+
+```json
+{
+  "from": 7, "to": 10,
+  "attrs": {"order_mode": "singleton", "action_class": "support",
+            "action": "standby", "target": null, "fleet_no": "sx5.1"},
+  "members_num": 12
+}
+```
+
+机制：调度器在 `action_class` 分支命中 `support` + `standby` → `execute_loiter(start_h, end_h)`（`planning_lib.py:270-272`），该函数**根本不读 target**。
+
+**A3 · `ORBIT`（绕飞）** —— `destinationFacilityId` 有值但永不抵达，是"趋向但不终端"的对照：
+
+```json
+{
+  "from": 8, "to": 11,
+  "attrs": {"order_mode": "singleton", "action_class": "recon",
+            "order_type": "orbit", "target": "shaoxing_2", "fleet_no": "sx6.1"},
+  "members_num": 15
+}
+```
+
+**A4 · 并群** —— 覆盖规范 §14.2 的"并群"一行。让多个群的 `to` 指向同一节点并走 `aggregate`：
+
+```json
+{
+  "from": 9, "to": 12,
+  "attrs": {"order_mode": "aggregate", "order_type": "breakthrough",
+            "target": "aggregate_point", "fleet_no": "sx7.1"},
+  "members_num": 10
+}
+```
+
+机制：`order_mode == "aggregate"` 且 `target == "aggregate_point"` 时收集同 `to` 节点的其他成员为 `merge_peers`（`uav_agent.py:243-250`），再飞向 `io.get_rendezvous_point(...)`。
+
+### 9.4 B 档：需要几何设计，不改代码
+
+**B1 · 路过** —— `target` 取一个位于某设施**延长线之外**的坐标，使直线航段从该设施附近掠过但终点不是它。
+
+注意：起点随机（见 9.2b），所以掠过距离会随撒点变化，**必须实测分布，不能假定**。若要严格控制掠过距离，只能先做 9.5 的起点配置化。
+
+**B2 · 多候选歧义** —— **不需要构造，现有场景天然就是。** 实测：以起点圆（半径 1084 m，圆心 116.3580/39.8780）上 72 个采样点计算：
+
+| 设施对 | 方位角差 最小 | 中位 | 最大 | 差 < 5° 的比例 |
+|---|---|---|---|---|
+| shaoxing_1 vs shaoxing_2 | 0.12° | 4.56° | 9.53° | **56%** |
+| shaoxing_1 vs shaoxing_3 | 13.75° | 16.83° | 29.53° | 0% |
+| shaoxing_2 vs shaoxing_3 | 9.90° | 15.76° | 27.34° | 0% |
+
+也就是说：**超过一半的起点位置上，swarm1（→s1）与 swarm2（→s2）在整个航程的大部分时间里几乎共线**，只在最后几百米才分得开。s1 与 s2 相距 1350 m，而从起点看它们分别在 3.1 km 与 4.4 km 处，角度自然就小。这正是规范 §14.2"多个接近方向相似的设施：证据不足时保持歧义，不强行唯一识别"最理想的压力测试，而且零成本。
+
+**B3 · 同址设施** —— 复制一条 facility 记录，坐标相同、`id` 不同，测"相位不可分辨性"。规范要求两设施不得靠任意排序宣称识别成功。
+
+**顺带一个已实测的设施布局事实**：本 fixture 里**只有 `shaoxing_1` 有防护圈**，`shaoxing_2` / `shaoxing_3` 没有。三级圈都是正圆、圆心与设施偏差 0.0 m：
+
+| 圈 | 半径 |
+|---|---|
+| `shaoxing_1_countermeasure` | 1000 m |
+| `shaoxing_1_alert` | 2000 m |
+| `shaoxing_1_warning` | 3000 m |
+
+这既确认了"父空域半径以设施为圆心"这条映射在本 fixture 中成立，也说明**区域类场景（首入圈、已在区域内）只能在 `shaoxing_1` 上测**。
+
+### 9.5 C 档：需要改配置语义
+
+**C1 · `DEPARTED`（escape）与"已在区域内"** —— 两者都要求起点落在防护圈内。起见 9.2b，起点随机圆到 `shaoxing_1` 的距离实测为 1834–4002 m（中位 3133 m），而警戒圈半径 3000 m，**约半数起点在圈内**。
+
+所以 `escape` 现在可用但会**混合产出**：圈内起点得到真实的 `DEPARTED`，圈外起点退化为原地不动、被真值块正确标为 `DEGENERATE_ROUTE`。这反而是 `truthStatus` 字段价值的一个现成演示。若要产出干净的 `DEPARTED` 与"已在区域内"样本，需要让起点位置可配置（见 §10.4）。
+
+**C2 · 中途转向** —— 多跳路径可以表达（图遍历支持 `0→X→Y`，`flightPlan` 本就是段列表），但会触发 §10.1 的群成员重叠问题，需先定语义。
+
+### 9.6 与设计规范 §14.2 的对照
+
+| 规范要求的场景 | 本清单对应 | 状态 |
+|---|---|---|
+| 单机/多机共同目的地 | 现有 breakthrough | 已有 |
+| 一个设施但轨迹路过 | B1 | 需设计几何 |
+| 多个接近方向相似的设施 | **B2** | **已有，且很强** |
+| 非零终端速度 | B1 的掠过几何 | 需设计 |
+| 悬停/绕行 | A2 / A3 | 零代码可得 |
+| 中途转向 | C2 | 需先定语义 §10.1 |
+| 异步/缺测/重复请求 | 导出侧不涉及，由回放侧注入 | 待定 |
+| 分群/并群/成员换序 | A4 并群；换序由排序保证 | 并群零代码 |
+| 同址设施/重叠区域 | B3 | 需造数据 |
+| 时域外到达/已在区域内 | C1 | 需起点可配置 |
+| 多群多设施并发 | 现有 3 群 | 已有 |
+
+---
+
+## 10. 三个待拍板的分歧
+
+### 10.1 多跳路径会让群成员重叠
+
+`build_mission_meta`（`mission_orchestrator.py:226`）是**按边建群**的：一个 agent 只要路径包含某条边，就进那个 swarm 的 `memberIds`。所以一旦加多跳路径，同一个 agent 会同时出现在两个 swarm 里。
+
+这直接撞上设计规范 §3.3 的假设："同一分组批次默认是互斥划分。成员缺失、重复归属、空群分别报告诊断。"
+
+- **(a) 接受按边建群 + 允许重叠**，把重叠本身当作 M3 的输入之一（规范要求"重复归属"要报诊断，正好有素材）
+- **(b) 把"群"重新定义成按最终目的地分组**，多跳的中间边不单独建群
+
+倾向 (b)：M3 的推断单位是"集群"，而"在某条航段上"不等于"是一个集群"。但这会改动 `missionMeta` 的现有语义，需确认下游有无依赖。
+
+### 10.2 三种"终点"语义要区分到什么程度
+
+| 场景 | 终点在哪 | `destinationFacilityId` | `outcome` |
+|---|---|---|---|
+| breakthrough | 设施坐标 | 有 | `ARRIVED` |
+| detour | 设施**周长**上 | 有 | `ARRIVED_AT_PERIMETER` |
+| orbit | 绕设施转圈，**永不抵达** | 有 | `ORBIT` |
+
+设计规范的 `GROUP_TERMINAL_STATE` 是**终端状态**（论文式 18：终端位置服从以目的地为均值的高斯），既不是"进入圈"，也不是"绕到附近"。所以必须先定：**M3 要预测的"抵达"对标哪一种。**
+
+建议：第一版只把 `ARRIVED`（终点 = 设施坐标）当作 `GROUP_TERMINAL_STATE` 的正例；`ARRIVED_AT_PERIMETER` 与 `ORBIT` 单列，作为"趋向但不终端"的对照，不混进 ETA 误差统计。
+
+### 10.3 真值怎么和快照对齐
+
+一个导出是**一整段仿真的逐帧轨迹**，而 M3 是**每个快照推断一次**。所以同一条航迹切出的多个快照**共享同一个真值**，规范要求的场景级划分在实现上就意味着"整条航迹只能归标定侧或测试侧"。
+
+需要定：**一个导出切成几个快照**（窗口长度、步长）。若要复用现有服务口径，可对齐它的 120 s / 240 点（`engine.py:33-34`）；但要注意实测航程为 1.8–5.3 km，按 16 m/s 约需 115–335 s，**120 s 窗口不足以覆盖全程**，切窗时要保证快照仍带有足够的初始化和评价段。
+
+### 10.4 附带一件（写 §9 时冒出来的）
+
+`escape` 与"已在区域内"都卡在起点不可控上（§9.5 C1）。**要不要让起点位置可配置？** 这需要给 `init_loc3` / `init_loc4` 或 `_spawn_agents` 加一个参数入口，属于本次改造范围之外，但不做的话这两类场景只能靠随机撒点碰运气。
