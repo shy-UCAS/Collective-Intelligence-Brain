@@ -26,3 +26,12 @@ docker-images/
 
 # IDE 个人设置
 .vscode/settings.json
+
+# Node 依赖树
+node_modules/
+
+# 本地评审/基准测试工作产物（生成物，不入库）
+.docx_work/
+.pptx_audit/
+simulation_benchmark_*/
+blobs/
