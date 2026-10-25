@@ -1,0 +1,143 @@
+{
+  "counts": {
+    "math": 31,
+    "chart": 5,
+    "table": 8
+  },
+  "owners": {
+    "math": [
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      14,
+      15,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24,
+      32,
+      33,
+      36
+    ],
+    "chart": [
+      7,
+      13,
+      17,
+      22,
+      28
+    ],
+    "table": [
+      31,
+      33,
+      34,
+      35,
+      37,
+      38,
+      39
+    ]
+  },
+  "latexFormulas": [
+    {
+      "page": 5,
+      "latex": "\\mathcal{W}_{L}=\\operatorname{tail}_{240}\\{(p_k,t_k):t_k\\ge t_n-120\\}"
+    },
+    {
+      "page": 6,
+      "latex": "v_k=\\frac{d(p_k,p_{k-1})}{t_k-t_{k-1}}"
+    },
+    {
+      "page": 6,
+      "latex": "L=\\sum_{k=1}^{n-1}d(p_{k-1},p_k)"
+    },
+    {
+      "page": 6,
+      "latex": "S=\\frac{d(p_0,p_{n-1})}{L},\\quad D_{span}=\\max_{i,j}d(p_i,p_j)"
+    },
+    {
+      "page": 7,
+      "latex": "D_{ij}=d(p_i,p_j),\\qquad D_{span}=\\max D"
+    },
+    {
+      "page": 8,
+      "latex": "b=\\frac{\\sum_k(t_k-\\bar t)(d_k-\\bar d)}{\\sum_k(t_k-\\bar t)^2}"
+    },
+    {
+      "page": 10,
+      "latex": "\\operatorname{Eligible}(r,i)=\\operatorname{Active}(r,t)\\land\\operatorname{Match}(r,i)"
+    },
+    {
+      "page": 11,
+      "latex": "r_{ij}^{u}=\\min(r_i^u,r_j^u),\\qquad r_{ij}^{v}=\\min(r_i^v,r_j^v)"
+    },
+    {
+      "page": 11,
+      "latex": "D_{ij}=\\sqrt{\\|\\tilde p_i-\\tilde p_j\\|^2+(r_{ij}^{u}\\|\\tilde u_i-\\tilde u_j\\|)^2+(r_{ij}^{v}|\\tilde v_i-\\tilde v_j|)^2}"
+    },
+    {
+      "page": 12,
+      "latex": "\\mathcal N_\\varepsilon(i)=\\{j:D_{ij}\\le\\varepsilon\\},\\quad\\varepsilon=1.5"
+    },
+    {
+      "page": 14,
+      "latex": "q_i=R_\\theta p_i,\\quad z_i=(q_i-\\bar q)/s,\\quad s=\\max_{i,c}|(q_i-\\bar q)_c|"
+    },
+    {
+      "page": 15,
+      "latex": "h_i=\\phi(z_i),\\quad g_c=\\max_{i\\in\\mathcal V}h_{ic},\\quad\\hat y=\\operatorname{argmax}_k\\psi(g)_k"
+    },
+    {
+      "page": 18,
+      "latex": "\\tau_b=d_b/|b|"
+    },
+    {
+      "page": 18,
+      "latex": "\\tau_a=d_m\\overline{\\Delta t}/|\\overline{\\Delta d}|"
+    },
+    {
+      "page": 18,
+      "latex": "\\tau_f=\\lfloor d_f/v_{max,scope}\\rfloor"
+    },
+    {
+      "page": 19,
+      "latex": "\\mathcal C(x)=\\{c_r(x):g_r(x)=1\\}"
+    },
+    {
+      "page": 19,
+      "latex": "\\operatorname{key}(c)=(-p_c,-q_c,-a_c,\\operatorname{code}_c)"
+    },
+    {
+      "page": 20,
+      "latex": "H=\\left[\\sum_{j=1}^{5}a_j\\ge3\\right]\\land\\left[\\sum_{j=1}^{5}b_j\\ge3\\right]\\land G_{latest}"
+    },
+    {
+      "page": 21,
+      "latex": "C=\\operatorname{clip}_{[0,1]}(0.45f+0.30\\max(0,1-\\delta_h/25)+0.25\\max(0,1-\\delta_\\tau/20))"
+    },
+    {
+      "page": 23,
+      "latex": "S_{raw}=\\sum_{k=1}^{10}w_ks_k+b_{pilot}"
+    },
+    {
+      "page": 23,
+      "latex": "C=\\operatorname{clip}_{[0,1]}(0.70\\bar q+0.20c_I+0.10u)"
+    },
+    {
+      "page": 23,
+      "latex": "S_1=\\max\\{\\operatorname{round}(\\operatorname{clip}_{[0,100]}(S_{raw}+\\Delta_C)),F\\}"
+    },
+    {
+      "page": 24,
+      "latex": "\\mathcal C=\\{j:\\operatorname{valid}_j\\land d(\\bar p,q_j)\\le R_j\\}"
+    },
+    {
+      "page": 24,
+      "latex": "P_{detect}=1-\\prod_{j\\in\\mathcal C}(1-p_j)"
+    }
+  ]
+}

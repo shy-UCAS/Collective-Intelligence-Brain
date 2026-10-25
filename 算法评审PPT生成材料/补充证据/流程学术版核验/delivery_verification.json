@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": {
+    "slides39": true,
+    "notesMatchAllPages": true,
+    "chartValuesMatchScene": true,
+    "nativeCounts": true,
+    "noMainNativeTables": true,
+    "noUnconvertedArgCommand": true,
+    "textGeometryClean": true,
+    "renderMatchesDeliveredBytes": true,
+    "sevenFixturesPassed": true,
+    "productionHashesUnchanged": true,
+    "timeBudgetWithin30to35": true,
+    "wordOriginalNonDocumentPartsPreserved": true,
+    "word54Pages": true,
+    "preview39Pages": true,
+    "pdfExportMatchesFinal": true
+  },
+  "nativeCounts": {
+    "math": 31,
+    "chart": 5,
+    "table": 8
+  },
+  "notesFailures": [],
+  "chartFailures": [],
+  "estimatedSeconds": 2025,
+  "spokenCharacters": 7394,
+  "deckSha256": "b788c1f082af05ad6cfa5ab10b6a76c73ca044a6c71424503799552cf53123ee",
+  "wordSha256": "ae18eb10f64c3bae52412749c6a216efa0a3c29f1d89617a337bcec6e235fcd6",
+  "performanceSourceSha256": "d6d2a9f17b0a9b7de4357ec188e70f80c72159bc5faff25c809271c46e3e4a3c"
+}

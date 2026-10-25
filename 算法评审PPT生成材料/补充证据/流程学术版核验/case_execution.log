@@ -1,0 +1,19 @@
+test_whitelist_member_does_not_exempt_nearby_unlisted_member (__main__.Capture.test_whitelist_member_does_not_exempt_nearby_unlisted_member) ... [DEBUG] Using LEGACY feature extraction for 1 UAVs
+ok
+test_flight_plan_member_does_not_exempt_nearby_unplanned_member (__main__.Capture.test_flight_plan_member_does_not_exempt_nearby_unplanned_member) ... [DEBUG] Using LEGACY feature extraction for 1 UAVs
+ok
+test_defense_success_resource_consumption_and_vulnerabilities_use_supplied_resources (__main__.Capture.test_defense_success_resource_consumption_and_vulnerabilities_use_supplied_resources) ... [DEBUG] Using LEGACY feature extraction for 1 UAVs
+ok
+test_defense_assessment_reports_missing_inputs_instead_of_fake_values (__main__.Capture.test_defense_assessment_reports_missing_inputs_instead_of_fake_values) ... [DEBUG] Using LEGACY feature extraction for 1 UAVs
+ok
+test_overlapping_airspaces_keep_all_matches_and_choose_stable_primary_context (__main__.Capture.test_overlapping_airspaces_keep_all_matches_and_choose_stable_primary_context) ... [DEBUG] Using LEGACY feature extraction for 1 UAVs
+[DEBUG] Using LEGACY feature extraction for 1 UAVs
+ok
+test_primary_airspace_does_not_borrow_facility_from_another_candidate (__main__.Capture.test_primary_airspace_does_not_borrow_facility_from_another_candidate) ... [DEBUG] Using LEGACY feature extraction for 1 UAVs
+ok
+test_flight_plan_line_route_uses_metric_tolerance (__main__.Capture.test_flight_plan_line_route_uses_metric_tolerance) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.301s
+
+OK
