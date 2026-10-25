@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "pptSha256": "3aef5563fd2704d456917ebef2ed51edf8163f3ec6b4e865feadec0d49a6d97c",
+  "wordSha256": "dd81ab7ceb93dfc52bdc0260a52b0d67ff42d8de6a1e5eef36cc15b33a972584",
+  "ppt": {
+    "slides": 32,
+    "equations": 22,
+    "nativeTables": 14,
+    "nativeCharts": 2,
+    "pictureShapes": 0
+  },
+  "bodyPages": 23,
+  "appendixPages": 9,
+  "notesAndSpeechMatch": true,
+  "embeddedWorkbooksUnchanged": true,
+  "chartCacheRefresh": [
+    {
+      "cell": "B2",
+      "before": "65.819999999999993",
+      "after": "65.82"
+    },
+    {
+      "cell": "B3",
+      "before": "280.91000000000003",
+      "after": "280.91"
+    }
+  ],
+  "outsideSlide": [],
+  "textOverlapCandidates": [],
+  "powerPointOpenedAndRendered": 32,
+  "wordPages": 52,
+  "wordChangedTextNodes": 16,
+  "wordOtherPartsUnchanged": true,
+  "wordIdenticalRenderedPages": 36,
+  "algorithmSourceHashesUnchanged": 10,
+  "newExperimentsRun": false,
+  "visualReview": "All 32 slides reviewed in rendered contact sheets; merged slides inspected individually. All 52 Word pages reviewed as contact sheets, with changed citation lines checked against old images."
+}

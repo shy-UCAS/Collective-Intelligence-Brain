@@ -1,0 +1,429 @@
+{
+  "timestampUTC": "2026-10-25T08:25:46.430387+00:00",
+  "purpose": "方法图中间量与定向回归；不构成准确率或性能测量",
+  "clustering": [
+    {
+      "name": "单帧转向",
+      "tracks": [
+        {
+          "id": "A",
+          "x": [
+            0.0,
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0
+          ],
+          "y": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "B",
+          "x": [
+            0.0,
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            40.0
+          ],
+          "y": [
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            40.0,
+            50.0
+          ]
+        }
+      ],
+      "components": [
+        [
+          [
+            1.0,
+            0.0
+          ],
+          10.0,
+          1.0,
+          1.0
+        ],
+        [
+          [
+            1.0,
+            0.0
+          ],
+          10.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distanceMatrix": [
+        [
+          0.0,
+          0.9999999999999999
+        ],
+        [
+          0.9999999999999999,
+          0.0
+        ]
+      ],
+      "labels": [
+        0,
+        0
+      ],
+      "eps": 1.5
+    },
+    {
+      "name": "悬停与缓行",
+      "tracks": [
+        {
+          "id": "A",
+          "x": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "B",
+          "x": [
+            0.0,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5
+          ],
+          "y": [
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0
+          ]
+        }
+      ],
+      "components": [
+        [
+          [
+            0.0,
+            0.0
+          ],
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          [
+            0.0,
+            0.0
+          ],
+          0.1,
+          0.0,
+          1.0
+        ]
+      ],
+      "distanceMatrix": [
+        [
+          0.0,
+          1.0000499987500624
+        ],
+        [
+          1.0000499987500624,
+          0.0
+        ]
+      ],
+      "labels": [
+        0,
+        0
+      ],
+      "eps": 1.5
+    },
+    {
+      "name": "持续反向",
+      "tracks": [
+        {
+          "id": "A",
+          "x": [
+            0.0,
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0
+          ],
+          "y": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "B",
+          "x": [
+            100.0,
+            90.0,
+            80.0,
+            70.0,
+            60.0,
+            50.0
+          ],
+          "y": [
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0,
+            50.0
+          ]
+        }
+      ],
+      "components": [
+        [
+          [
+            1.0,
+            0.0
+          ],
+          10.0,
+          1.0,
+          1.0
+        ],
+        [
+          [
+            -1.0,
+            0.0
+          ],
+          10.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "distanceMatrix": [
+        [
+          0.0,
+          5.8449497412318605
+        ],
+        [
+          5.8449497412318605,
+          0.0
+        ]
+      ],
+      "labels": [
+        0,
+        1
+      ],
+      "eps": 1.5
+    }
+  ],
+  "pointnet": {
+    "sourceRequestId": "algorithm-review-20261025-chain",
+    "members": [
+      "agent_2_0",
+      "agent_2_1",
+      "agent_2_2",
+      "agent_2_3",
+      "agent_2_4"
+    ],
+    "commonTimestamps": [
+      1786511539.543,
+      1786511540.043,
+      1786511540.543,
+      1786511541.043,
+      1786511541.543,
+      1786511542.043,
+      1786511542.543,
+      1786511543.043,
+      1786511543.543,
+      1786511544.043
+    ],
+    "previous": [
+      [
+        -68063.25194848375,
+        4436608.117993067
+      ],
+      [
+        -68061.67337753566,
+        4436632.127039132
+      ],
+      [
+        -68055.49003903673,
+        4436656.107014435
+      ],
+      [
+        -68080.80954954668,
+        4436654.251486959
+      ],
+      [
+        -68104.97812529106,
+        4436658.115356617
+      ]
+    ],
+    "current": [
+      [
+        -68058.65694841964,
+        4436611.768815756
+      ],
+      [
+        -68056.23354413023,
+        4436636.5640750695
+      ],
+      [
+        -68050.05024212389,
+        4436660.5440310165
+      ],
+      [
+        -68074.78361380822,
+        4436659.3059025705
+      ],
+      [
+        -68099.53833658248,
+        4436662.55237572
+      ]
+    ],
+    "direction": [
+      0.7743205818753379,
+      0.6327935180485322
+    ],
+    "rotated": [
+      [
+        3478426.8833484375,
+        -2754759.950554489
+      ],
+      [
+        3478444.5493135313,
+        -2754777.5173256807
+      ],
+      [
+        3478459.204733543,
+        -2754797.4795443746
+      ],
+      [
+        3478473.897142486,
+        -2754777.544505965
+      ],
+      [
+        3478492.0755815767,
+        -2754760.4307617876
+      ]
+    ],
+    "centered": [
+      [
+        -32.438675477169454,
+        14.633983970154077
+      ],
+      [
+        -14.772710383404046,
+        -2.932787221390754
+      ],
+      [
+        -0.11729037156328559,
+        -22.89500591531396
+      ],
+      [
+        14.575118571519852,
+        -2.9599675056524575
+      ],
+      [
+        32.75355766201392,
+        14.153776671737432
+      ]
+    ],
+    "normalized": [
+      [
+        -0.9903863211412405,
+        0.4467906699224281
+      ],
+      [
+        -0.4510261308357584,
+        -0.08954102792906882
+      ],
+      [
+        -0.003580996384380974,
+        -0.6990082161934593
+      ],
+      [
+        0.4449934484040312,
+        -0.09037087012643187
+      ],
+      [
+        1.0,
+        0.4321294443123147
+      ]
+    ],
+    "logits": [
+      [
+        -6.007583141326904,
+        -14.607192993164062,
+        -11.042193412780762,
+        13.301732063293457,
+        -2.5353755950927734
+      ]
+    ],
+    "classNames": [
+      "circular",
+      "vertical",
+      "horizontal",
+      "vshape",
+      "arc"
+    ],
+    "predicted": "vshape",
+    "permutationMaxAbsDifference": 9.5367431640625e-07,
+    "parameterCount": 51333,
+    "scope": "当前固定五成员样本的推理与逆序一致性；不是独立分类效果测试"
+  },
+  "regression": {
+    "tests": [
+      "test_cluster_feature_regression.ClusterFeatureRegressionTests.test_hover_and_low_speed_heading_do_not_get_full_direction_weight",
+      "test_cluster_feature_regression.ClusterFeatureRegressionTests.test_single_frame_turn_does_not_split_a_stable_pair",
+      "test_cluster_feature_regression.ClusterFeatureRegressionTests.test_sustained_opposite_directions_are_not_merged",
+      "test_v32_source_adapter.V32SourceValidationTest.test_duplicate_active_serial_no_raises",
+      "test_v32_source_adapter.V32NormalizationTest.test_registration_status_mapping",
+      "test_v32_source_adapter.V32EndToEndTest.test_exempt_targets_are_removed_before_clustering",
+      "test_v32_source_adapter.V32EndToEndTest.test_off_route_track_does_not_exempt",
+      "test_v32_gateway.V32GatewayValidationTest.test_whitelist_model_conflict_disables_exemption_and_marks_source",
+      "test_situation_judgment.SituationJudgmentApiTest.test_defense_assessment_reports_missing_inputs_instead_of_fake_values",
+      "test_situation_judgment.SituationJudgmentApiTest.test_defense_success_resource_consumption_and_vulnerabilities_use_supplied_resources",
+      "test_situation_judgment.SituationJudgmentApiTest.test_flight_plan_member_does_not_exempt_nearby_unplanned_member",
+      "test_situation_judgment.SituationJudgmentApiTest.test_whitelist_member_does_not_exempt_nearby_unlisted_member"
+    ],
+    "run": 12,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "passed": true
+  },
+  "sourceHashes": {
+    "situation_judgment/engine.py": "ab9f1e4deb2e53f020e74eb789cdde601bd20b1064bc0c9b284c88fbc4d27b00",
+    "situation_judgment/v32_gateway.py": "dcf9f2bd634496e48537552cb83d3c033179872b7e131ec582a470f0f0166b11",
+    "situation_judgment/airspace_analysis.py": "5666fa47c3a7999729e41193a267665f0779d34c20923dc4fda72ce4bde657dd",
+    "situation_judgment/defense_analysis.py": "9a78e5c3f9c18e55d3fb91cc8213c6d54fbbd8111c16191baff69c7b1d949254",
+    "formation_recognition/clusters_recognition.py": "edc5e7c9a5cfbcf1236a14934035b3a0b9c4d1508c5e35be72846abb539c424b",
+    "formation_recognition/formation_recognition_pointnet.py": "16f38f53ef5be066920a55a0f0fcf7e9c1a89e7e442d68877d361d72768574dd",
+    "formation_recognition/intention_recognition.py": "715a8bcf242beaabb3da8e3b8731eb21d3931e2c61d8ca84f51d97311e42b67b",
+    "situation_judgment/legacy_adapter.py": "6e07b07d5f691647efaed2deb2405ae73166f1a0556ab4a077473f37dac80c1e",
+    "config.ini": "ea4b96cd487cd56e6533aa007e58455b7d4f4d70058b6d901785500ebf036118",
+    "pretrained_weights/formation_recognition/form_recog_model_20260812_200622.pth": "bbe62fcb8ccc85cfdd35060e80d74d43bdfa3acc3223ce9127aadab398fd49bf"
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "preparedDate": "2026-10-25",
+  "bodyPages": 34,
+  "appendixPages": 10,
+  "totalSlides": 44,
+  "wordPages": 52,
+  "files": [
+    {
+      "file": "01_任务说明.md",
+      "sha256": "0e9111c1b27ca5b0ef53823e1e3632d4bc678db9631753a7de83eba8b05a1810",
+      "bytes": 3317
+    },
+    {
+      "file": "ppt编排脚本.md",
+      "sha256": "605ecbdef798fd70b2d6a9294bcf8cc63904182eaa6798bf71ee94b4d0e927de",
+      "bytes": 25848
+    },
+    {
+      "file": "project_reference.md",
+      "sha256": "9a75f564a429f1843d98a3b1acc43a0684a6f555ca13539339df20ba77270e96",
+      "bytes": 77688
+    },
+    {
+      "file": "性能证据/results.json",
+      "sha256": "d6d2a9f17b0a9b7de4357ec188e70f80c72159bc5faff25c809271c46e3e4a3c",
+      "bytes": 409691
+    },
+    {
+      "file": "性能证据/route_p95.png",
+      "sha256": "e872f1dc7c1e3fbd4078b0e34514b59f60d9573827e4f57be4ca25cfc4428cfc",
+      "bytes": 141360
+    },
+    {
+      "file": "性能证据/仿真性能测试报告.md",
+      "sha256": "719d89b366b37aa9e9c109e996c41e623a755f471f7734047aabafdacc00f9a1",
+      "bytes": 12577
+    },
+    {
+      "file": "性能证据/仿真输入说明.md",
+      "sha256": "c8da78a4b6e6100a9b3fc540c7e1ad0fef82de4de0d681aff7c4eb6971e6cfde",
+      "bytes": 772
+    },
+    {
+      "file": "成稿/算法评审PPT_20261025_技术详解版_44页.pptx",
+      "sha256": "a4baa997484eececeb93798a27270da00932b42c75dc17120857fc6a2f326a97",
+      "bytes": 273181
+    },
+    {
+      "file": "技术详解版_交付审核说明.md",
+      "sha256": "bed5f6099cf906627989def7ed52fbb68e8b9738dc228aa8177df881638cd69b",
+      "bytes": 3450
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明.conversion_profile.json",
+      "sha256": "cc6ea653fc764cf31ae5841fb370e2e931fb1b6fa18c5e03265d5cf50f7dff8f",
+      "bytes": 983
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明.docx",
+      "sha256": "7d291a888a575289435dafa163fef370daa4d40e94ee943452a345bdb109448a",
+      "bytes": 1261506
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明.md",
+      "sha256": "fc93e86040d75ddfdf787ef54b82c239f5fd2ea94852cbb98da43bedb07adc00",
+      "bytes": 71559
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明_files/image_001.png",
+      "sha256": "249eb10509dfdbecd26f67ca77954644eb19a0e7f935719e271466721e57c954",
+      "bytes": 68822
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明_files/image_002.png",
+      "sha256": "3f7a2aa8fe16165cc0c64b1c040de8d7324a2b1784ebf317e73a01c8902bbc85",
+      "bytes": 66970
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明_files/image_003.png",
+      "sha256": "e872f1dc7c1e3fbd4078b0e34514b59f60d9573827e4f57be4ca25cfc4428cfc",
+      "bytes": 141360
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明_files/image_manifest.json",
+      "sha256": "c363a42989aeb60878062480e1874bac2302794b938fffe906c187d3349d62f5",
+      "bytes": 2153
+    },
+    {
+      "file": "材料引用索引.md",
+      "sha256": "c75f0c8a288f58745699b86ffd0eaef97e11d05b219e555e16e47fde6b42489d",
+      "bytes": 4985
+    },
+    {
+      "file": "案例素材/case_response.json",
+      "sha256": "014de5e18dccfb5fe3af3d35ed07555c79b9b8cf863e5899e2548e162b867259",
+      "bytes": 87229
+    },
+    {
+      "file": "案例素材/案例说明.md",
+      "sha256": "60c1972ebc7fcff059e6c41e25b7fc4366508f44fd8c32dddb8371aedd593837",
+      "bytes": 926
+    },
+    {
+      "file": "案例素材/请求样本.json",
+      "sha256": "37a468c9fe6f1fee4004384d0e419d7f7f28bd5c491c7b70780150a6d92b748a",
+      "bytes": 100523
+    },
+    {
+      "file": "演讲稿_算法阶段评审_技术详解版_44页.md",
+      "sha256": "b18a85a28bdf01fab90170e6ffb74aa4c92804ab203576e99bf4f31bd2d4fc97",
+      "bytes": 22219
+    },
+    {
+      "file": "补充证据/benchmark_simulated_swarm.py",
+      "sha256": "aa74af69bedc66c4b74d17b2f69ff655dbff9eb82ad56f638ed561b6c28a28a4",
+      "bytes": 18141
+    },
+    {
+      "file": "补充证据/cache_outputs_dense.json",
+      "sha256": "8c1abf32d1c81800b80a6d991651193ac43f91f7eba12e4a7aa3aa10c100a844",
+      "bytes": 1289395
+    },
+    {
+      "file": "补充证据/cache_outputs_separated.json",
+      "sha256": "757f6c26652bbc9e87dc7ef89d2684eaa633b439936df9c5974f4011423c9a5c",
+      "bytes": 1521259
+    },
+    {
+      "file": "补充证据/input_manifest_sha256.json",
+      "sha256": "cd1bfe3444bd22a1ca0399f39aeee381db9fc8223e93a8b775e99dc4903cc345",
+      "bytes": 8439
+    },
+    {
+      "file": "补充证据/定向回归结果.json",
+      "sha256": "d26d2f123da752a32923c317293f8a44077b78264fe4e50cfcac478e6c459e4a",
+      "bytes": 3055
+    },
+    {
+      "file": "补充证据/方法证据/delivery_verification.json",
+      "sha256": "8bafaf7c8a51747beaf370511a4cd54f975cbeefdd0212380ce19e0f459dfd53",
+      "bytes": 1003
+    },
+    {
+      "file": "补充证据/方法证据/evidence_execution.log",
+      "sha256": "1ec1be4f11264c99e09d53e7377d1c97cb9b788f1b1d9e8ccc0dbb1b0a4dca6d",
+      "bytes": 6019
+    },
+    {
+      "file": "补充证据/方法证据/final_validation.json",
+      "sha256": "e7a561c6adeac6e359a2ed48d0ccae8590b5b6cadcf56b19b894cc259b1e53e3",
+      "bytes": 9276
+    },
+    {
+      "file": "补充证据/方法证据/method_evidence.json",
+      "sha256": "d2d1a4841a164d257253aa2f915965099ce684411f71a225a49893dc36618f61",
+      "bytes": 9829
+    },
+    {
+      "file": "补充证据/缓存差异复核.json",
+      "sha256": "9d450cd64ecc5ca729dbe665d161fc1b7f5e65986be0387c04138085ac1b7f0b",
+      "bytes": 383
+    },
+    {
+      "file": "补充证据/链路案例/case_receipt.json",
+      "sha256": "080bf059c148ae26a4466c7785885b34c40350b09d11bdf627d1b37a54d5f83e",
+      "bytes": 5184
+    },
+    {
+      "file": "补充证据/链路案例/case_request.json",
+      "sha256": "5b76d448ea7ec67b9777b379836f5078bfa70eb823a2a563b06ba936ac858180",
+      "bytes": 100525
+    },
+    {
+      "file": "补充证据/链路案例/case_response.json",
+      "sha256": "e04de72b5916413b28b7e9f97513748aac9271f916ee9b2c70a365a4e36da699",
+      "bytes": 87346
+    },
+    {
+      "file": "补充证据/链路案例/case_trace.json",
+      "sha256": "17c05c51db312713ce5b08b7b63a632c5f8c420dd6ea19950141d6e3f8f0c7b4",
+      "bytes": 20992
+    }
+  ],
+  "historicalMaterial": "历史材料_20261024",
+  "sourceEvidence": "补充证据/方法证据/method_evidence.json"
+}

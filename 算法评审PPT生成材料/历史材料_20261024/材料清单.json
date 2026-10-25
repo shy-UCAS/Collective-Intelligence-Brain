@@ -1,0 +1,221 @@
+{
+  "preparedDate": "2026-10-24",
+  "purpose": "Company algorithm review PPT generation",
+  "bodyPages": 21,
+  "appendixPages": 8,
+  "totalSlides": 29,
+  "presentationMinutes": 36,
+  "wordPages": 37,
+  "sourceFiles": [
+    {
+      "file": "ppt编排脚本.md",
+      "source": "ppt编排脚本.md",
+      "sourceSha256": "b81b23359cffc0723c88ed3d75d1f3dc41a6bf2bfee3e0fca14757090e2402b1",
+      "copySha256": "0b6d6a13ab05eae9da18b43e0309f5d54fcd78716f88cfd70abb0d6011ef2271",
+      "identical": false,
+      "adaptation": "Package-relative links only; facts and numerical results preserved"
+    },
+    {
+      "file": "project_reference.md",
+      "source": "project_reference.md",
+      "sourceSha256": "4614ad5318e63738672931d0c72d47be6ce4ba1bf57fbc657a72d9bbe90e0c89",
+      "copySha256": "a5bc63bfe7aea680e8947714794dbe2c2604b631f71d38155b68932bb0cd404a",
+      "identical": false,
+      "adaptation": "Package-relative links only; facts and numerical results preserved"
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明.docx",
+      "source": "无人机态势判读算法原理方法与阶段验证说明.docx",
+      "sourceSha256": "5a16333f500c2c51cf90d022eb997434d466e9a6c672691768fb4917b4384469",
+      "copySha256": "5a16333f500c2c51cf90d022eb997434d466e9a6c672691768fb4917b4384469",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "性能证据/仿真性能测试报告.md",
+      "source": "simulation_benchmark_20261023/仿真性能测试报告.md",
+      "sourceSha256": "13ab6d093addb2dca3b299348a924f4478e4085f47825640fb33e2bcabe82251",
+      "copySha256": "719d89b366b37aa9e9c109e996c41e623a755f471f7734047aabafdacc00f9a1",
+      "identical": false,
+      "adaptation": "Package-relative links only; facts and numerical results preserved"
+    },
+    {
+      "file": "性能证据/results.json",
+      "source": "simulation_benchmark_20261023/results.json",
+      "sourceSha256": "d6d2a9f17b0a9b7de4357ec188e70f80c72159bc5faff25c809271c46e3e4a3c",
+      "copySha256": "d6d2a9f17b0a9b7de4357ec188e70f80c72159bc5faff25c809271c46e3e4a3c",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "性能证据/route_p95.png",
+      "source": "simulation_benchmark_20261023/route_p95.png",
+      "sourceSha256": "e872f1dc7c1e3fbd4078b0e34514b59f60d9573827e4f57be4ca25cfc4428cfc",
+      "copySha256": "e872f1dc7c1e3fbd4078b0e34514b59f60d9573827e4f57be4ca25cfc4428cfc",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "案例素材/请求样本.json",
+      "source": "situationawareness latest/outputs/agents02_http_request_sample.json",
+      "sourceSha256": "37a468c9fe6f1fee4004384d0e419d7f7f28bd5c491c7b70780150a6d92b748a",
+      "copySha256": "37a468c9fe6f1fee4004384d0e419d7f7f28bd5c491c7b70780150a6d92b748a",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "案例素材/case_response.json",
+      "source": ".docx_work/project_review/case_response.json",
+      "sourceSha256": "014de5e18dccfb5fe3af3d35ed07555c79b9b8cf863e5899e2548e162b867259",
+      "copySha256": "014de5e18dccfb5fe3af3d35ed07555c79b9b8cf863e5899e2548e162b867259",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "补充证据/定向回归结果.json",
+      "source": ".docx_work/project_review/test_results.json",
+      "sourceSha256": "d26d2f123da752a32923c317293f8a44077b78264fe4e50cfcac478e6c459e4a",
+      "copySha256": "d26d2f123da752a32923c317293f8a44077b78264fe4e50cfcac478e6c459e4a",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "补充证据/缓存差异复核.json",
+      "source": "simulation_benchmark_20261023/cache_difference_audit.json",
+      "sourceSha256": "9d450cd64ecc5ca729dbe665d161fc1b7f5e65986be0387c04138085ac1b7f0b",
+      "copySha256": "9d450cd64ecc5ca729dbe665d161fc1b7f5e65986be0387c04138085ac1b7f0b",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "补充证据/cache_outputs_separated.json",
+      "source": "simulation_benchmark_20261023/cache_outputs_separated.json",
+      "sourceSha256": "757f6c26652bbc9e87dc7ef89d2684eaa633b439936df9c5974f4011423c9a5c",
+      "copySha256": "757f6c26652bbc9e87dc7ef89d2684eaa633b439936df9c5974f4011423c9a5c",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "补充证据/cache_outputs_dense.json",
+      "source": "simulation_benchmark_20261023/cache_outputs_dense.json",
+      "sourceSha256": "8c1abf32d1c81800b80a6d991651193ac43f91f7eba12e4a7aa3aa10c100a844",
+      "copySha256": "8c1abf32d1c81800b80a6d991651193ac43f91f7eba12e4a7aa3aa10c100a844",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "补充证据/input_manifest_sha256.json",
+      "source": "simulation_benchmark_20261023/input_manifest_sha256.json",
+      "sourceSha256": "cd1bfe3444bd22a1ca0399f39aeee381db9fc8223e93a8b775e99dc4903cc345",
+      "copySha256": "cd1bfe3444bd22a1ca0399f39aeee381db9fc8223e93a8b775e99dc4903cc345",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    },
+    {
+      "file": "补充证据/benchmark_simulated_swarm.py",
+      "source": "situationawareness latest/tools/benchmark_simulated_swarm.py",
+      "sourceSha256": "aa74af69bedc66c4b74d17b2f69ff655dbff9eb82ad56f638ed561b6c28a28a4",
+      "copySha256": "aa74af69bedc66c4b74d17b2f69ff655dbff9eb82ad56f638ed561b6c28a28a4",
+      "identical": true,
+      "adaptation": "Byte-identical copy"
+    }
+  ],
+  "packageFiles": [
+    {
+      "file": "01_任务说明.md",
+      "bytes": 5557,
+      "sha256": "84ade5754f2ff80978150c9899dab63461cc3533c00be62668fc428b029fabd1"
+    },
+    {
+      "file": "ppt编排脚本.md",
+      "bytes": 58666,
+      "sha256": "0b6d6a13ab05eae9da18b43e0309f5d54fcd78716f88cfd70abb0d6011ef2271"
+    },
+    {
+      "file": "project_reference.md",
+      "bytes": 61136,
+      "sha256": "a5bc63bfe7aea680e8947714794dbe2c2604b631f71d38155b68932bb0cd404a"
+    },
+    {
+      "file": "性能证据/results.json",
+      "bytes": 409691,
+      "sha256": "d6d2a9f17b0a9b7de4357ec188e70f80c72159bc5faff25c809271c46e3e4a3c"
+    },
+    {
+      "file": "性能证据/route_p95.png",
+      "bytes": 141360,
+      "sha256": "e872f1dc7c1e3fbd4078b0e34514b59f60d9573827e4f57be4ca25cfc4428cfc"
+    },
+    {
+      "file": "性能证据/仿真性能测试报告.md",
+      "bytes": 12577,
+      "sha256": "719d89b366b37aa9e9c109e996c41e623a755f471f7734047aabafdacc00f9a1"
+    },
+    {
+      "file": "性能证据/仿真输入说明.md",
+      "bytes": 772,
+      "sha256": "c8da78a4b6e6100a9b3fc540c7e1ad0fef82de4de0d681aff7c4eb6971e6cfde"
+    },
+    {
+      "file": "无人机态势判读算法原理方法与阶段验证说明.docx",
+      "bytes": 345000,
+      "sha256": "5a16333f500c2c51cf90d022eb997434d466e9a6c672691768fb4917b4384469"
+    },
+    {
+      "file": "材料引用索引.md",
+      "bytes": 4985,
+      "sha256": "c75f0c8a288f58745699b86ffd0eaef97e11d05b219e555e16e47fde6b42489d"
+    },
+    {
+      "file": "案例素材/case_response.json",
+      "bytes": 87229,
+      "sha256": "014de5e18dccfb5fe3af3d35ed07555c79b9b8cf863e5899e2548e162b867259"
+    },
+    {
+      "file": "案例素材/案例说明.md",
+      "bytes": 926,
+      "sha256": "60c1972ebc7fcff059e6c41e25b7fc4366508f44fd8c32dddb8371aedd593837"
+    },
+    {
+      "file": "案例素材/请求样本.json",
+      "bytes": 100523,
+      "sha256": "37a468c9fe6f1fee4004384d0e419d7f7f28bd5c491c7b70780150a6d92b748a"
+    },
+    {
+      "file": "补充证据/benchmark_simulated_swarm.py",
+      "bytes": 18141,
+      "sha256": "aa74af69bedc66c4b74d17b2f69ff655dbff9eb82ad56f638ed561b6c28a28a4"
+    },
+    {
+      "file": "补充证据/cache_outputs_dense.json",
+      "bytes": 1289395,
+      "sha256": "8c1abf32d1c81800b80a6d991651193ac43f91f7eba12e4a7aa3aa10c100a844"
+    },
+    {
+      "file": "补充证据/cache_outputs_separated.json",
+      "bytes": 1521259,
+      "sha256": "757f6c26652bbc9e87dc7ef89d2684eaa633b439936df9c5974f4011423c9a5c"
+    },
+    {
+      "file": "补充证据/input_manifest_sha256.json",
+      "bytes": 8439,
+      "sha256": "cd1bfe3444bd22a1ca0399f39aeee381db9fc8223e93a8b775e99dc4903cc345"
+    },
+    {
+      "file": "补充证据/定向回归结果.json",
+      "bytes": 3055,
+      "sha256": "d26d2f123da752a32923c317293f8a44077b78264fe4e50cfcac478e6c459e4a"
+    },
+    {
+      "file": "补充证据/缓存差异复核.json",
+      "bytes": 383,
+      "sha256": "9d450cd64ecc5ca729dbe665d161fc1b7f5e65986be0387c04138085ac1b7f0b"
+    }
+  ],
+  "notes": [
+    "Original project sources were not edited",
+    "72 synthetic input files not included",
+    "Missing engineering attachments are indexed, not fabricated",
+    "Request and saved response identifiers are documented in case notes"
+  ]
+}

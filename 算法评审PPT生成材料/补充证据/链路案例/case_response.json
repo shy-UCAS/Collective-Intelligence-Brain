@@ -1,0 +1,2533 @@
+{
+  "code": 0,
+  "data": {
+    "algorithmDiagnostics": {
+      "clustering": {
+        "algorithm": "legacy_dbscan",
+        "status": "used"
+      },
+      "etaAssessment": {
+        "algorithm": "legacy_single_uav_arrival_estimator",
+        "status": "used"
+      },
+      "formationRecognition": {
+        "algorithm": "pointnet_model",
+        "status": "used"
+      },
+      "intentBehaviorFeatures": {
+        "algorithm": "legacy_behavior_extractors",
+        "note": "只复用行为特征，不直接采用旧意图名称",
+        "status": "used"
+      },
+      "trajectoryPreprocessing": {
+        "alignedTimestampCount": 10,
+        "inputTargetCount": 9,
+        "outputTargetCount": 9,
+        "status": "used"
+      }
+    },
+    "analysisResult": {
+      "analysisTime": "2026-08-12T13:12:24.043+08:00",
+      "clusterCount": 2,
+      "clusterDtoList": [
+        {
+          "affectedFacilities": null,
+          "airspaceId": null,
+          "algorithmResult": {
+            "threatGrade": "mid",
+            "threatScore": 46
+          },
+          "altitude": 200.55165007644783,
+          "arriveTime": null,
+          "circle": "管控区",
+          "clusterFlag": 1,
+          "clusterFlagDescription": "5架编队",
+          "clusterId": "cluster-2dbd37901e",
+          "confidenceAdjustment": 0,
+          "decisionExempt": false,
+          "defenseAssessment": {
+            "allocatedResourceCount": 0,
+            "detectingVulnerability": {
+              "isVulnerable": null,
+              "missingInputs": [
+                "baseData.detectionDevices[]"
+              ],
+              "status": "unavailable"
+            },
+            "interceptVulnerability": {
+              "isVulnerable": null,
+              "missingInputs": [
+                "baseData.defenseResources[]"
+              ],
+              "status": "unavailable"
+            },
+            "missingInputs": [
+              "baseData.detectionDevices[]",
+              "baseData.defenseResources[]"
+            ],
+            "resourceDepletion": [],
+            "responseTimeSeconds": null,
+            "status": "unavailable",
+            "successRate": null,
+            "successRateMethod": null
+          },
+          "defenseRemainSec": null,
+          "defenseTime": null,
+          "detectingVulnerability": {
+            "isVulnerable": null,
+            "missingInputs": [
+              "baseData.detectionDevices[]"
+            ],
+            "status": "unavailable"
+          },
+          "droneCount": 5,
+          "eta": null,
+          "etaMethod": null,
+          "evidenceChain": [
+            {
+              "category": "cluster",
+              "confidence": 0.85,
+              "description": "集群成员与队形",
+              "evidenceCode": "EV-CLUSTER",
+              "observedValue": {
+                "formationType": "vshape",
+                "memberCount": 5
+              },
+              "relatedTargetIds": [
+                "agent_2_0",
+                "agent_2_1",
+                "agent_2_2",
+                "agent_2_3",
+                "agent_2_4"
+              ]
+            },
+            {
+              "category": "airspace",
+              "confidence": 1.0,
+              "description": "当前最严重圈层",
+              "evidenceCode": "EV-AIRSPACE-RING",
+              "observedValue": "alert",
+              "relatedTargetIds": [
+                "agent_2_0",
+                "agent_2_1",
+                "agent_2_2",
+                "agent_2_3",
+                "agent_2_4"
+              ]
+            },
+            {
+              "category": "trajectory",
+              "confidence": 0.95,
+              "description": "圈层运动趋势",
+              "evidenceCode": "EV-RING-TREND",
+              "observedValue": "exiting",
+              "relatedTargetIds": [
+                "agent_2_3"
+              ]
+            },
+            {
+              "category": "trajectory",
+              "confidence": 0.95,
+              "description": "关键成员运动特征",
+              "evidenceCode": "EV-TRAJECTORY",
+              "observedValue": {
+                "approachingFacility": false,
+                "headingChangeDegrees": 0.0,
+                "speedMps": 15.844
+              },
+              "relatedTargetIds": [
+                "agent_2_3"
+              ]
+            },
+            {
+              "category": "identity",
+              "confidence": 0.72,
+              "description": "目标明确未登记且未命中有效豁免",
+              "evidenceCode": "EV-I11-UNREGISTERED",
+              "observedValue": {
+                "registrationStatus": "unregistered"
+              },
+              "relatedTargetIds": [
+                "agent_2_0",
+                "agent_2_1",
+                "agent_2_2",
+                "agent_2_3",
+                "agent_2_4"
+              ]
+            },
+            {
+              "category": "airspace",
+              "confidence": 0.76,
+              "description": "目标位于警戒区",
+              "evidenceCode": "EV-I13-RING",
+              "observedValue": {
+                "ringStatus": "alert"
+              },
+              "relatedTargetIds": [
+                "agent_2_0",
+                "agent_2_1",
+                "agent_2_2",
+                "agent_2_3",
+                "agent_2_4"
+              ]
+            }
+          ],
+          "finalResult": {
+            "correctionId": null,
+            "resultSource": "algorithm",
+            "threatGrade": "mid",
+            "threatScore": 46
+          },
+          "formationType": "vshape",
+          "fusionConfidence": 0.917,
+          "hardRuleFloor": 0,
+          "incidentArea": null,
+          "intentCategory": "违规飞行（非恶意）",
+          "intentCode": "I-13",
+          "intentLabel": "闯入警戒区",
+          "intentName": "闯入警戒区",
+          "interceptVulnerability": {
+            "isVulnerable": null,
+            "missingInputs": [
+              "baseData.defenseResources[]"
+            ],
+            "status": "unavailable"
+          },
+          "lat": 39.88937699994578,
+          "latFacilities": null,
+          "lng": 116.35836960121529,
+          "lngFacilities": null,
+          "orientDto": {
+            "orientDecomposeDto": {
+              "airspaceCircle": 62,
+              "altitude": 18,
+              "behaviorPosture": 25,
+              "clusterFormation": 80,
+              "complianceRegistration": 82,
+              "comprehensive": 46,
+              "intentInference": 52,
+              "model": 55,
+              "payload": 15,
+              "pilotProfile": 25,
+              "trajectoryTrend": 15
+            }
+          },
+          "realStatus": 0,
+          "resourceDepletion": [],
+          "reviewRequired": false,
+          "ringTrend": "exiting",
+          "routing": {
+            "planRequired": false,
+            "reviewRequired": false,
+            "suggestCreateEvent": true,
+            "suggestedTacticTier": "T1",
+            "suggestionReason": "L1"
+          },
+          "scaleTag": "5架",
+          "sourceConflict": false,
+          "spatialSummary": {
+            "defenseAirspaceIds": [],
+            "isInNoFlyZone": null,
+            "noFlyZoneIds": [],
+            "status": "partial"
+          },
+          "successRate": null,
+          "successRateRemake": null,
+          "targetDtoList": [
+            {
+              "altitude": 200.28987604711529,
+              "assessmentBasis": "进入warn圈层；目标明确未登记且未命中有效豁免；目标位于预警区；十维规则加权评分=40；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.889075482112005,
+              "currentLng": 116.35850625665148,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": 2,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:12:19Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.901,
+              "heading": 47.148,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": "DJI-M300-SN005",
+              "speed": 14.518,
+              "targetId": "agent_2_0",
+              "threatLevel": 2,
+              "threatScore": 40
+            },
+            {
+              "altitude": 200.41234167993838,
+              "assessmentBasis": "进入warn圈层；进入alert圈层；目标明确未登记且未命中有效豁免；目标位于警戒区；十维规则加权评分=41；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.88929900363051,
+              "currentLng": 116.35851289993208,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": 2,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:12:19Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.917,
+              "heading": 46.413,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": "DJI-M300-SN006",
+              "speed": 15.282,
+              "targetId": "agent_2_1",
+              "threatLevel": 2,
+              "threatScore": 41
+            },
+            {
+              "altitude": 200.55165007644783,
+              "assessmentBasis": "进入warn圈层；进入alert圈层；目标明确未登记且未命中有效豁免；目标位于警戒区；十维规则加权评分=45；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.889517741403836,
+              "currentLng": 116.35856393156438,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": 2,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:12:19Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.917,
+              "heading": 46.413,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": "DJI-M300-SN007",
+              "speed": 15.282,
+              "targetId": "agent_2_2",
+              "threatLevel": 2,
+              "threatScore": 45
+            },
+            {
+              "altitude": 200.41232521412644,
+              "assessmentBasis": "进入warn圈层；进入alert圈层；目标明确未登记且未命中有效豁免；目标位于警戒区；十维规则加权评分=41；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.889490131543184,
+              "currentLng": 116.35827766270451,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": 2,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:12:19Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.917,
+              "heading": 45.627,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": "DJI-M300-SN008",
+              "speed": 15.844,
+              "targetId": "agent_2_3",
+              "threatLevel": 2,
+              "threatScore": 41
+            },
+            {
+              "altitude": 200.29280364174147,
+              "assessmentBasis": "进入warn圈层；目标明确未登记且未命中有效豁免；目标位于预警区；十维规则加权评分=40；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.88950264103938,
+              "currentLng": 116.3579872552239,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": 2,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:12:19Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.901,
+              "heading": 46.413,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": "DJI-M300-SN009",
+              "speed": 15.282,
+              "targetId": "agent_2_4",
+              "threatLevel": 2,
+              "threatScore": 40
+            }
+          ],
+          "targetName": null,
+          "threatGrade": "mid",
+          "threatLevel": 2,
+          "threatScore": 46,
+          "zoneTier": "alert"
+        },
+        {
+          "affectedFacilities": null,
+          "airspaceId": null,
+          "algorithmResult": {
+            "threatGrade": "low",
+            "threatScore": 32
+          },
+          "altitude": 161.15532239564433,
+          "arriveTime": null,
+          "circle": "防护区外",
+          "clusterFlag": 1,
+          "clusterFlagDescription": "4架编队",
+          "clusterId": "cluster-d2ad471505",
+          "confidenceAdjustment": 0,
+          "decisionExempt": false,
+          "defenseAssessment": {
+            "allocatedResourceCount": 0,
+            "detectingVulnerability": {
+              "isVulnerable": null,
+              "missingInputs": [
+                "baseData.detectionDevices[]"
+              ],
+              "status": "unavailable"
+            },
+            "interceptVulnerability": {
+              "isVulnerable": null,
+              "missingInputs": [
+                "baseData.defenseResources[]"
+              ],
+              "status": "unavailable"
+            },
+            "missingInputs": [
+              "baseData.detectionDevices[]",
+              "baseData.defenseResources[]"
+            ],
+            "resourceDepletion": [],
+            "responseTimeSeconds": null,
+            "status": "unavailable",
+            "successRate": null,
+            "successRateMethod": null
+          },
+          "defenseRemainSec": null,
+          "defenseTime": null,
+          "detectingVulnerability": {
+            "isVulnerable": null,
+            "missingInputs": [
+              "baseData.detectionDevices[]"
+            ],
+            "status": "unavailable"
+          },
+          "droneCount": 4,
+          "eta": null,
+          "etaMethod": null,
+          "evidenceChain": [
+            {
+              "category": "cluster",
+              "confidence": 0.85,
+              "description": "集群成员与队形",
+              "evidenceCode": "EV-CLUSTER",
+              "observedValue": {
+                "formationType": "vshape",
+                "memberCount": 4
+              },
+              "relatedTargetIds": [
+                "agent_3_0",
+                "agent_3_1",
+                "agent_3_2",
+                "agent_3_3"
+              ]
+            },
+            {
+              "category": "airspace",
+              "confidence": 1.0,
+              "description": "当前最严重圈层",
+              "evidenceCode": "EV-AIRSPACE-RING",
+              "observedValue": "outer",
+              "relatedTargetIds": [
+                "agent_3_0",
+                "agent_3_1",
+                "agent_3_2",
+                "agent_3_3"
+              ]
+            },
+            {
+              "category": "trajectory",
+              "confidence": 0.95,
+              "description": "圈层运动趋势",
+              "evidenceCode": "EV-RING-TREND",
+              "observedValue": "outside_stable",
+              "relatedTargetIds": [
+                "agent_3_2"
+              ]
+            },
+            {
+              "category": "trajectory",
+              "confidence": 0.95,
+              "description": "关键成员运动特征",
+              "evidenceCode": "EV-TRAJECTORY",
+              "observedValue": {
+                "approachingFacility": false,
+                "headingChangeDegrees": 0.0,
+                "speedMps": 15.938
+              },
+              "relatedTargetIds": [
+                "agent_3_2"
+              ]
+            },
+            {
+              "category": "identity",
+              "confidence": 0.66,
+              "description": "射频身份、广播身份和登记结论均不可用",
+              "evidenceCode": "EV-I29-IDENTITY",
+              "observedValue": {
+                "identitySourcesAvailable": 0
+              },
+              "relatedTargetIds": [
+                "agent_3_0",
+                "agent_3_1",
+                "agent_3_2",
+                "agent_3_3"
+              ]
+            }
+          ],
+          "finalResult": {
+            "correctionId": null,
+            "resultSource": "algorithm",
+            "threatGrade": "low",
+            "threatScore": 32
+          },
+          "formationType": "vshape",
+          "fusionConfidence": 0.897,
+          "hardRuleFloor": 0,
+          "incidentArea": null,
+          "intentCategory": "未知/异常",
+          "intentCode": "I-29",
+          "intentLabel": "身份不可辨",
+          "intentName": "身份不可辨",
+          "interceptVulnerability": {
+            "isVulnerable": null,
+            "missingInputs": [
+              "baseData.defenseResources[]"
+            ],
+            "status": "unavailable"
+          },
+          "lat": 39.876419739142754,
+          "latFacilities": null,
+          "lng": 116.35658290430742,
+          "lngFacilities": null,
+          "orientDto": {
+            "orientDecomposeDto": {
+              "airspaceCircle": 10,
+              "altitude": 18,
+              "behaviorPosture": 25,
+              "clusterFormation": 62,
+              "complianceRegistration": 68,
+              "comprehensive": 32,
+              "intentInference": 40,
+              "model": 55,
+              "payload": 15,
+              "pilotProfile": 25,
+              "trajectoryTrend": 15
+            }
+          },
+          "realStatus": null,
+          "resourceDepletion": [],
+          "reviewRequired": false,
+          "ringTrend": "outside_stable",
+          "routing": {
+            "planRequired": false,
+            "reviewRequired": false,
+            "suggestCreateEvent": false,
+            "suggestedTacticTier": null,
+            "suggestionReason": null
+          },
+          "scaleTag": "4架",
+          "sourceConflict": false,
+          "spatialSummary": {
+            "defenseAirspaceIds": [],
+            "isInNoFlyZone": null,
+            "noFlyZoneIds": [],
+            "status": "partial"
+          },
+          "successRate": null,
+          "successRateRemake": null,
+          "targetDtoList": [
+            {
+              "altitude": 161.15532239564433,
+              "assessmentBasis": "射频身份、广播身份和登记结论均不可用；十维规则加权评分=29；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.876537540127956,
+              "currentLng": 116.35639951103096,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": null,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:11:40Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.897,
+              "heading": 41.934,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": null,
+              "speed": 15.938,
+              "targetId": "agent_3_0",
+              "threatLevel": 1,
+              "threatScore": 29
+            },
+            {
+              "altitude": 160.81994221783773,
+              "assessmentBasis": "射频身份、广播身份和登记结论均不可用；十维规则加权评分=29；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.87650687818227,
+              "currentLng": 116.35656599824364,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": null,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:11:40Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.897,
+              "heading": 41.896,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": null,
+              "speed": 15.938,
+              "targetId": "agent_3_1",
+              "threatLevel": 1,
+              "threatScore": 29
+            },
+            {
+              "altitude": 160.81996564009972,
+              "assessmentBasis": "射频身份、广播身份和登记结论均不可用；十维规则加权评分=29；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.876381635945705,
+              "currentLng": 116.35665580149448,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": null,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:11:40Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.897,
+              "heading": 41.872,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": null,
+              "speed": 15.938,
+              "targetId": "agent_3_2",
+              "threatLevel": 1,
+              "threatScore": 29
+            },
+            {
+              "altitude": 161.1552914426023,
+              "assessmentBasis": "射频身份、广播身份和登记结论均不可用；十维规则加权评分=29；当前单机圈层；当前单机圈层运动趋势；当前单机运动特征",
+              "currentLat": 39.87625290231508,
+              "currentLng": 116.3567103064606,
+              "detectionSources": null,
+              "droneModel": null,
+              "droneRealnameStatus": null,
+              "firstDetectDevice": null,
+              "firstDetectTime": "2026-08-12T05:11:40Z",
+              "flightStatus": null,
+              "formationRole": null,
+              "fusionConfidence": 0.897,
+              "heading": 41.912,
+              "payload": null,
+              "pilotLat": null,
+              "pilotLng": null,
+              "pilotName": null,
+              "pilotPhone": null,
+              "pilotRealnameStatus": null,
+              "snCode": null,
+              "speed": 15.938,
+              "targetId": "agent_3_3",
+              "threatLevel": 1,
+              "threatScore": 29
+            }
+          ],
+          "targetName": null,
+          "threatGrade": "low",
+          "threatLevel": 1,
+          "threatScore": 32,
+          "zoneTier": "outside"
+        }
+      ],
+      "correctionsApplied": [],
+      "defenseAssessment": {
+        "allocatedResourceCount": 0,
+        "detectingVulnerability": {
+          "isVulnerable": null,
+          "missingInputs": [
+            "baseData.detectionDevices[]"
+          ],
+          "status": "unavailable"
+        },
+        "interceptVulnerability": {
+          "isVulnerable": null,
+          "missingInputs": [
+            "baseData.defenseResources[]"
+          ],
+          "status": "unavailable"
+        },
+        "missingInputs": [
+          "baseData.detectionDevices[]",
+          "baseData.defenseResources[]"
+        ],
+        "resourceDepletion": [],
+        "responseTimeSeconds": null,
+        "status": "unavailable",
+        "successRate": null,
+        "successRateMethod": null
+      },
+      "eta": null,
+      "fusionConfidence": 0.917,
+      "intentCategory": "违规飞行（非恶意）",
+      "intentCode": "I-13",
+      "intentLabel": "闯入警戒区",
+      "primaryClusterId": "cluster-2dbd37901e",
+      "routing": {
+        "planRequired": false,
+        "reviewRequired": false,
+        "suggestCreateEvent": true,
+        "suggestedTacticTier": "T1",
+        "suggestionReason": "L1"
+      },
+      "snapshotTime": "2026-08-12T13:12:24.043+08:00",
+      "targetCount": 9,
+      "targetName": null,
+      "threatGrade": "mid",
+      "threatLevel": 2,
+      "threatScore": 46,
+      "zoneTier": "alert"
+    },
+    "correctionResults": [],
+    "debug": {
+      "generatedAt": "2026-10-25T07:42:00+00:00",
+      "minimumTrackPoints": 2
+    },
+    "defenseInputCompleteness": {
+      "defenseResourcesProvided": false,
+      "detectionDevicesProvided": false,
+      "missingInputs": [
+        "baseData.defenseResources[]",
+        "baseData.detectionDevices[]"
+      ]
+    },
+    "eventSuggestions": [
+      {
+        "evidenceChain": [
+          {
+            "category": "cluster",
+            "confidence": 0.85,
+            "description": "集群成员与队形",
+            "evidenceCode": "EV-CLUSTER",
+            "observedValue": {
+              "formationType": "vshape",
+              "memberCount": 5
+            },
+            "relatedTargetIds": [
+              "agent_2_0",
+              "agent_2_1",
+              "agent_2_2",
+              "agent_2_3",
+              "agent_2_4"
+            ]
+          },
+          {
+            "category": "airspace",
+            "confidence": 1.0,
+            "description": "当前最严重圈层",
+            "evidenceCode": "EV-AIRSPACE-RING",
+            "observedValue": "alert",
+            "relatedTargetIds": [
+              "agent_2_0",
+              "agent_2_1",
+              "agent_2_2",
+              "agent_2_3",
+              "agent_2_4"
+            ]
+          },
+          {
+            "category": "trajectory",
+            "confidence": 0.95,
+            "description": "圈层运动趋势",
+            "evidenceCode": "EV-RING-TREND",
+            "observedValue": "exiting",
+            "relatedTargetIds": [
+              "agent_2_3"
+            ]
+          },
+          {
+            "category": "trajectory",
+            "confidence": 0.95,
+            "description": "关键成员运动特征",
+            "evidenceCode": "EV-TRAJECTORY",
+            "observedValue": {
+              "approachingFacility": false,
+              "headingChangeDegrees": 0.0,
+              "speedMps": 15.844
+            },
+            "relatedTargetIds": [
+              "agent_2_3"
+            ]
+          },
+          {
+            "category": "identity",
+            "confidence": 0.72,
+            "description": "目标明确未登记且未命中有效豁免",
+            "evidenceCode": "EV-I11-UNREGISTERED",
+            "observedValue": {
+              "registrationStatus": "unregistered"
+            },
+            "relatedTargetIds": [
+              "agent_2_0",
+              "agent_2_1",
+              "agent_2_2",
+              "agent_2_3",
+              "agent_2_4"
+            ]
+          },
+          {
+            "category": "airspace",
+            "confidence": 0.76,
+            "description": "目标位于警戒区",
+            "evidenceCode": "EV-I13-RING",
+            "observedValue": {
+              "ringStatus": "alert"
+            },
+            "relatedTargetIds": [
+              "agent_2_0",
+              "agent_2_1",
+              "agent_2_2",
+              "agent_2_3",
+              "agent_2_4"
+            ]
+          }
+        ],
+        "intent": {
+          "confidence": 0.76,
+          "intentCategory": "违规飞行（非恶意）",
+          "intentCategoryCode": "violation",
+          "intentCode": "I-13",
+          "intentLabel": "闯入警戒区",
+          "intentName": "闯入警戒区",
+          "specialViolationCode": null,
+          "topCandidates": [
+            {
+              "confidence": 0.76,
+              "intentCategory": "违规飞行（非恶意）",
+              "intentCategoryCode": "violation",
+              "intentCode": "I-13",
+              "intentLabel": "闯入警戒区",
+              "intentName": "闯入警戒区",
+              "ruleName": "目标位于警戒区",
+              "specialViolationCode": null,
+              "triggerTargetIds": [
+                "agent_2_0",
+                "agent_2_1",
+                "agent_2_2",
+                "agent_2_3",
+                "agent_2_4"
+              ]
+            },
+            {
+              "confidence": 0.72,
+              "intentCategory": "违规飞行（非恶意）",
+              "intentCategoryCode": "violation",
+              "intentCode": "I-11",
+              "intentLabel": "未报备飞行",
+              "intentName": "未报备飞行",
+              "ruleName": "目标明确未登记且未命中有效豁免",
+              "specialViolationCode": null,
+              "triggerTargetIds": [
+                "agent_2_0",
+                "agent_2_1",
+                "agent_2_2",
+                "agent_2_3",
+                "agent_2_4"
+              ]
+            }
+          ],
+          "triggerTargetIds": [
+            "agent_2_0",
+            "agent_2_1",
+            "agent_2_2",
+            "agent_2_3",
+            "agent_2_4"
+          ]
+        },
+        "memberTargetIds": [
+          "agent_2_0",
+          "agent_2_1",
+          "agent_2_2",
+          "agent_2_3",
+          "agent_2_4"
+        ],
+        "planRequired": false,
+        "relatedClusterId": "cluster-2dbd37901e",
+        "reviewRequired": false,
+        "suggestCreateEvent": true,
+        "suggestedTacticTier": "T1",
+        "suggestionReason": "L1",
+        "threat": {
+          "confidence": 0.917,
+          "confidenceAdjustment": 0,
+          "dimensions": {
+            "airspace": 62,
+            "altitude": 18,
+            "behavior": 25,
+            "cluster": 80,
+            "compliance": 82,
+            "intent": 52,
+            "model": 55,
+            "payload": 15,
+            "pilot": 25,
+            "trend": 15
+          },
+          "etaMethod": null,
+          "etaSeconds": null,
+          "grade": "mid",
+          "hardRuleFloor": 0,
+          "nearestFacilityDistanceMeters": null,
+          "nearestFacilityId": null,
+          "reviewRequired": false,
+          "score": 46,
+          "sourceConflict": false
+        }
+      },
+      {
+        "evidenceChain": [
+          {
+            "category": "cluster",
+            "confidence": 0.85,
+            "description": "集群成员与队形",
+            "evidenceCode": "EV-CLUSTER",
+            "observedValue": {
+              "formationType": "vshape",
+              "memberCount": 4
+            },
+            "relatedTargetIds": [
+              "agent_3_0",
+              "agent_3_1",
+              "agent_3_2",
+              "agent_3_3"
+            ]
+          },
+          {
+            "category": "airspace",
+            "confidence": 1.0,
+            "description": "当前最严重圈层",
+            "evidenceCode": "EV-AIRSPACE-RING",
+            "observedValue": "outer",
+            "relatedTargetIds": [
+              "agent_3_0",
+              "agent_3_1",
+              "agent_3_2",
+              "agent_3_3"
+            ]
+          },
+          {
+            "category": "trajectory",
+            "confidence": 0.95,
+            "description": "圈层运动趋势",
+            "evidenceCode": "EV-RING-TREND",
+            "observedValue": "outside_stable",
+            "relatedTargetIds": [
+              "agent_3_2"
+            ]
+          },
+          {
+            "category": "trajectory",
+            "confidence": 0.95,
+            "description": "关键成员运动特征",
+            "evidenceCode": "EV-TRAJECTORY",
+            "observedValue": {
+              "approachingFacility": false,
+              "headingChangeDegrees": 0.0,
+              "speedMps": 15.938
+            },
+            "relatedTargetIds": [
+              "agent_3_2"
+            ]
+          },
+          {
+            "category": "identity",
+            "confidence": 0.66,
+            "description": "射频身份、广播身份和登记结论均不可用",
+            "evidenceCode": "EV-I29-IDENTITY",
+            "observedValue": {
+              "identitySourcesAvailable": 0
+            },
+            "relatedTargetIds": [
+              "agent_3_0",
+              "agent_3_1",
+              "agent_3_2",
+              "agent_3_3"
+            ]
+          }
+        ],
+        "intent": {
+          "confidence": 0.66,
+          "intentCategory": "未知/异常",
+          "intentCategoryCode": "unknown_abnormal",
+          "intentCode": "I-29",
+          "intentLabel": "身份不可辨",
+          "intentName": "身份不可辨",
+          "specialViolationCode": null,
+          "topCandidates": [
+            {
+              "confidence": 0.66,
+              "intentCategory": "未知/异常",
+              "intentCategoryCode": "unknown_abnormal",
+              "intentCode": "I-29",
+              "intentLabel": "身份不可辨",
+              "intentName": "身份不可辨",
+              "ruleName": "射频身份、广播身份和登记结论均不可用",
+              "specialViolationCode": null,
+              "triggerTargetIds": [
+                "agent_3_0",
+                "agent_3_1",
+                "agent_3_2",
+                "agent_3_3"
+              ]
+            }
+          ],
+          "triggerTargetIds": [
+            "agent_3_0",
+            "agent_3_1",
+            "agent_3_2",
+            "agent_3_3"
+          ]
+        },
+        "memberTargetIds": [
+          "agent_3_0",
+          "agent_3_1",
+          "agent_3_2",
+          "agent_3_3"
+        ],
+        "planRequired": false,
+        "relatedClusterId": "cluster-d2ad471505",
+        "reviewRequired": false,
+        "suggestCreateEvent": false,
+        "suggestedTacticTier": null,
+        "suggestionReason": null,
+        "threat": {
+          "confidence": 0.897,
+          "confidenceAdjustment": 0,
+          "dimensions": {
+            "airspace": 10,
+            "altitude": 18,
+            "behavior": 25,
+            "cluster": 62,
+            "compliance": 68,
+            "intent": 40,
+            "model": 55,
+            "payload": 15,
+            "pilot": 25,
+            "trend": 15
+          },
+          "etaMethod": null,
+          "etaSeconds": null,
+          "grade": "low",
+          "hardRuleFloor": 0,
+          "nearestFacilityDistanceMeters": null,
+          "nearestFacilityId": null,
+          "reviewRequired": false,
+          "score": 32,
+          "sourceConflict": false
+        }
+      }
+    ],
+    "exemptTargetResults": [
+      {
+        "excludedFromClustering": true,
+        "exempt": true,
+        "matchedRecordId": "40086001",
+        "reasonCode": "WHITELIST",
+        "reasonName": "命中有效白名单",
+        "suggestCreateEvent": false,
+        "targetId": "agent_1_0"
+      },
+      {
+        "excludedFromClustering": true,
+        "exempt": true,
+        "matchedRecordId": "40086002",
+        "reasonCode": "WHITELIST",
+        "reasonName": "命中有效白名单",
+        "suggestCreateEvent": false,
+        "targetId": "agent_1_1"
+      },
+      {
+        "excludedFromClustering": true,
+        "exempt": true,
+        "matchedRecordId": "40086003",
+        "reasonCode": "WHITELIST",
+        "reasonName": "命中有效白名单",
+        "suggestCreateEvent": false,
+        "targetId": "agent_1_2"
+      },
+      {
+        "excludedFromClustering": true,
+        "exempt": true,
+        "matchedRecordId": "40086004",
+        "reasonCode": "WHITELIST",
+        "reasonName": "命中有效白名单",
+        "suggestCreateEvent": false,
+        "targetId": "agent_1_3"
+      }
+    ],
+    "identityDataDiagnostics": {
+      "conflicts": [],
+      "droneRegistrationRecordCount": 4,
+      "flightPlanRecordCount": 0,
+      "inputFormat": "v3.2-source",
+      "matchedTargetCount": 4,
+      "orphanPersonIds": [],
+      "personRecordCount": 4,
+      "unmatchedTargetIds": [
+        "agent_2_0",
+        "agent_2_1",
+        "agent_2_2",
+        "agent_2_3",
+        "agent_2_4",
+        "agent_3_0",
+        "agent_3_1",
+        "agent_3_2",
+        "agent_3_3"
+      ],
+      "unreferencedSerialNos": [],
+      "warnings": [],
+      "whitelistRecordCount": 4
+    },
+    "mapDataDiagnostics": {
+      "airspaceCount": 0,
+      "defaultMapApplied": false,
+      "facilityCount": 3,
+      "fallbackReason": null,
+      "mapId": null,
+      "ringCount": 3,
+      "source": "request"
+    },
+    "ruleVersion": "situation-rule-v2.3.0",
+    "skippedTargets": [],
+    "targetAirspaceResults": [
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 589.947,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.718,
+            "headingDeltaDegrees": 8.931,
+            "headingToBoundaryDegrees": 44.992,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 38,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 374.882,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7172,
+            "headingDeltaDegrees": 171.065,
+            "headingToBoundaryDegrees": 224.996,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 1339.851,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7164,
+            "headingDeltaDegrees": 171.062,
+            "headingToBoundaryDegrees": 225.0,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_countermeasure",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_1_0"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 567.127,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.718,
+            "headingDeltaDegrees": 8.931,
+            "headingToBoundaryDegrees": 44.993,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 36,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 397.702,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7172,
+            "headingDeltaDegrees": 171.065,
+            "headingToBoundaryDegrees": 224.996,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 1362.669,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7164,
+            "headingDeltaDegrees": 171.061,
+            "headingToBoundaryDegrees": 225.0,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_countermeasure",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_1_1"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 544.306,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.718,
+            "headingDeltaDegrees": 8.931,
+            "headingToBoundaryDegrees": 44.993,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 35,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 420.521,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7172,
+            "headingDeltaDegrees": 171.065,
+            "headingToBoundaryDegrees": 224.997,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 1385.487,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7164,
+            "headingDeltaDegrees": 171.061,
+            "headingToBoundaryDegrees": 225.0,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_countermeasure",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_1_2"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 521.486,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.718,
+            "headingDeltaDegrees": 8.931,
+            "headingToBoundaryDegrees": 44.993,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 33,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 443.34,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7172,
+            "headingDeltaDegrees": 171.065,
+            "headingToBoundaryDegrees": 224.997,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 1408.305,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": 15.7163,
+            "headingDeltaDegrees": 171.061,
+            "headingToBoundaryDegrees": 225.001,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_countermeasure",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_1_3"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 985.671,
+            "boundaryTransition": "none",
+            "confidence": 0.9451,
+            "distanceTrendMps": -15.6904,
+            "headingDeltaDegrees": 2.157,
+            "headingToBoundaryDegrees": 44.991,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 63,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 20.843,
+            "boundaryTransition": "none",
+            "confidence": 0.9451,
+            "distanceTrendMps": -15.6897,
+            "headingDeltaDegrees": 2.154,
+            "headingToBoundaryDegrees": 44.995,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 1,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 944.124,
+            "boundaryTransition": "none",
+            "confidence": 0.9451,
+            "distanceTrendMps": 15.6891,
+            "headingDeltaDegrees": 177.85,
+            "headingToBoundaryDegrees": 224.999,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_alert",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 1,
+          "highestRingTier": "warn",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_warning"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_2_0"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 967.692,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.8225,
+            "headingDeltaDegrees": 1.422,
+            "headingToBoundaryDegrees": 44.991,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 61,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 2.866,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.8218,
+            "headingDeltaDegrees": 1.419,
+            "headingToBoundaryDegrees": 44.995,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_to_exit",
+            "predictedBoundaryCrossingSeconds": 0,
+            "spatialRelation": "boundary"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 962.1,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": 15.8211,
+            "headingDeltaDegrees": 178.585,
+            "headingToBoundaryDegrees": 224.999,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_alert",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_2_1"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 947.491,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.8263,
+            "headingDeltaDegrees": 0.68,
+            "headingToBoundaryDegrees": 45.733,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 60,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 17.413,
+            "boundaryTransition": "entered",
+            "confidence": 0.8749,
+            "distanceTrendMps": -9.9554,
+            "headingDeltaDegrees": 178.582,
+            "headingToBoundaryDegrees": 224.995,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_to_exit",
+            "predictedBoundaryCrossingSeconds": 2,
+            "spatialRelation": "inside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 982.377,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": 15.8211,
+            "headingDeltaDegrees": 178.586,
+            "headingToBoundaryDegrees": 224.999,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_alert",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_2_2"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 967.239,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.9179,
+            "headingDeltaDegrees": 0.986,
+            "headingToBoundaryDegrees": 46.613,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 61,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 2.027,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.9184,
+            "headingDeltaDegrees": 0.632,
+            "headingToBoundaryDegrees": 44.995,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_to_exit",
+            "predictedBoundaryCrossingSeconds": 0,
+            "spatialRelation": "boundary"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 962.937,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": 15.9177,
+            "headingDeltaDegrees": 179.372,
+            "headingToBoundaryDegrees": 224.999,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_alert",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 2,
+          "highestRingTier": "alert",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            },
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "alert",
+              "ringId": "shaoxing_1_alert",
+              "ringLevel": 2
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_alert"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_2_3"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 984.456,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.8239,
+            "headingDeltaDegrees": 1.249,
+            "headingToBoundaryDegrees": 47.662,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 62,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 18.562,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": -15.8218,
+            "headingDeltaDegrees": 1.418,
+            "headingToBoundaryDegrees": 44.995,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 1,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 946.402,
+            "boundaryTransition": "none",
+            "confidence": 0.9452,
+            "distanceTrendMps": 15.8211,
+            "headingDeltaDegrees": 178.586,
+            "headingToBoundaryDegrees": 224.999,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "moving_deeper",
+            "predictedBoundaryCrossingSeconds": null,
+            "spatialRelation": "inside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_alert",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 1,
+          "highestRingTier": "warn",
+          "matchedRings": [
+            {
+              "airspaceId": null,
+              "relatedFacilityId": null,
+              "ringCode": "warn",
+              "ringId": "shaoxing_1_warning",
+              "ringLevel": 1
+            }
+          ],
+          "primaryRingIds": [
+            "shaoxing_1_warning"
+          ]
+        },
+        "status": "partial",
+        "targetNo": "agent_2_4"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 2129.537,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.8352,
+            "headingDeltaDegrees": 6.69,
+            "headingToBoundaryDegrees": 35.244,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 134,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 1138.514,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.929,
+            "headingDeltaDegrees": 2.086,
+            "headingToBoundaryDegrees": 39.847,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 71,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 168.884,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.9155,
+            "headingDeltaDegrees": 3.055,
+            "headingToBoundaryDegrees": 44.989,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 11,
+            "spatialRelation": "outside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_warning",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 0,
+          "highestRingTier": "outer",
+          "matchedRings": [],
+          "primaryRingIds": []
+        },
+        "status": "partial",
+        "targetNo": "agent_3_0"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 2124.165,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.8247,
+            "headingDeltaDegrees": 7.018,
+            "headingToBoundaryDegrees": 34.878,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 134,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 1132.103,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.9223,
+            "headingDeltaDegrees": 2.712,
+            "headingToBoundaryDegrees": 39.185,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 71,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 161.251,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.915,
+            "headingDeltaDegrees": 3.093,
+            "headingToBoundaryDegrees": 44.989,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 10,
+            "spatialRelation": "outside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_warning",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 0,
+          "highestRingTier": "outer",
+          "matchedRings": [],
+          "primaryRingIds": []
+        },
+        "status": "partial",
+        "targetNo": "agent_3_1"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 2131.255,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.8127,
+            "headingDeltaDegrees": 7.377,
+            "headingToBoundaryDegrees": 34.495,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 135,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 1138.151,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.9124,
+            "headingDeltaDegrees": 3.429,
+            "headingToBoundaryDegrees": 38.443,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 72,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 165.683,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.9147,
+            "headingDeltaDegrees": 3.116,
+            "headingToBoundaryDegrees": 44.989,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 10,
+            "spatialRelation": "outside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_warning",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 0,
+          "highestRingTier": "outer",
+          "matchedRings": [],
+          "primaryRingIds": []
+        },
+        "status": "partial",
+        "targetNo": "agent_3_2"
+      },
+      {
+        "assessmentTime": "2026-08-12T13:12:24.043+08:00",
+        "missingInputs": [
+          "baseData.airspaces[]"
+        ],
+        "movementRelations": [
+          {
+            "areaId": "shaoxing_1_countermeasure",
+            "areaKind": "ring",
+            "areaLevel": 3,
+            "boundaryDistanceMeters": 2140.451,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.8,
+            "headingDeltaDegrees": 7.736,
+            "headingToBoundaryDegrees": 34.176,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 135,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_alert",
+            "areaKind": "ring",
+            "areaLevel": 2,
+            "boundaryDistanceMeters": 1146.539,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.901,
+            "headingDeltaDegrees": 4.096,
+            "headingToBoundaryDegrees": 37.816,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 72,
+            "spatialRelation": "outside"
+          },
+          {
+            "areaId": "shaoxing_1_warning",
+            "areaKind": "ring",
+            "areaLevel": 1,
+            "boundaryDistanceMeters": 172.519,
+            "boundaryTransition": "none",
+            "confidence": 0.9725,
+            "distanceTrendMps": -15.9152,
+            "headingDeltaDegrees": 3.077,
+            "headingToBoundaryDegrees": 44.989,
+            "method": "polygon_boundary_distance_trend_v1",
+            "motionRelation": "approaching",
+            "predictedBoundaryCrossingSeconds": 11,
+            "spatialRelation": "outside"
+          }
+        ],
+        "nextBoundaryAreaId": "shaoxing_1_warning",
+        "noFlyAssessment": {
+          "isInNoFlyZone": null,
+          "matchedNoFlyZones": []
+        },
+        "ringAssessment": {
+          "highestRingLevel": 0,
+          "highestRingTier": "outer",
+          "matchedRings": [],
+          "primaryRingIds": []
+        },
+        "status": "partial",
+        "targetNo": "agent_3_3"
+      }
+    ],
+    "targetIntentResults": [
+      {
+        "candidateCount": 0,
+        "clusterId": null,
+        "confidence": null,
+        "intentCategory": null,
+        "intentCategoryCode": null,
+        "intentCode": null,
+        "intentLabel": null,
+        "reasonCode": "WHITELIST",
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "no_match",
+        "targetId": "agent_1_0",
+        "topCandidates": []
+      },
+      {
+        "candidateCount": 0,
+        "clusterId": null,
+        "confidence": null,
+        "intentCategory": null,
+        "intentCategoryCode": null,
+        "intentCode": null,
+        "intentLabel": null,
+        "reasonCode": "WHITELIST",
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "no_match",
+        "targetId": "agent_1_1",
+        "topCandidates": []
+      },
+      {
+        "candidateCount": 0,
+        "clusterId": null,
+        "confidence": null,
+        "intentCategory": null,
+        "intentCategoryCode": null,
+        "intentCode": null,
+        "intentLabel": null,
+        "reasonCode": "WHITELIST",
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "no_match",
+        "targetId": "agent_1_2",
+        "topCandidates": []
+      },
+      {
+        "candidateCount": 0,
+        "clusterId": null,
+        "confidence": null,
+        "intentCategory": null,
+        "intentCategoryCode": null,
+        "intentCode": null,
+        "intentLabel": null,
+        "reasonCode": "WHITELIST",
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "no_match",
+        "targetId": "agent_1_3",
+        "topCandidates": []
+      },
+      {
+        "candidateCount": 2,
+        "clusterId": "cluster-2dbd37901e",
+        "confidence": 0.68,
+        "intentCategory": "违规飞行（非恶意）",
+        "intentCategoryCode": "violation",
+        "intentCode": "I-13",
+        "intentLabel": "闯入预警区",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_2_0",
+        "topCandidates": [
+          {
+            "confidence": 0.68,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-13",
+            "intentLabel": "闯入预警区",
+            "intentName": "闯入预警区",
+            "ruleName": "目标位于预警区",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_0"
+            ]
+          },
+          {
+            "confidence": 0.72,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-11",
+            "intentLabel": "未报备飞行",
+            "intentName": "未报备飞行",
+            "ruleName": "目标明确未登记且未命中有效豁免",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_0"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 2,
+        "clusterId": "cluster-2dbd37901e",
+        "confidence": 0.76,
+        "intentCategory": "违规飞行（非恶意）",
+        "intentCategoryCode": "violation",
+        "intentCode": "I-13",
+        "intentLabel": "闯入警戒区",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_2_1",
+        "topCandidates": [
+          {
+            "confidence": 0.76,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-13",
+            "intentLabel": "闯入警戒区",
+            "intentName": "闯入警戒区",
+            "ruleName": "目标位于警戒区",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_1"
+            ]
+          },
+          {
+            "confidence": 0.72,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-11",
+            "intentLabel": "未报备飞行",
+            "intentName": "未报备飞行",
+            "ruleName": "目标明确未登记且未命中有效豁免",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_1"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 2,
+        "clusterId": "cluster-2dbd37901e",
+        "confidence": 0.76,
+        "intentCategory": "违规飞行（非恶意）",
+        "intentCategoryCode": "violation",
+        "intentCode": "I-13",
+        "intentLabel": "闯入警戒区",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_2_2",
+        "topCandidates": [
+          {
+            "confidence": 0.76,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-13",
+            "intentLabel": "闯入警戒区",
+            "intentName": "闯入警戒区",
+            "ruleName": "目标位于警戒区",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_2"
+            ]
+          },
+          {
+            "confidence": 0.72,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-11",
+            "intentLabel": "未报备飞行",
+            "intentName": "未报备飞行",
+            "ruleName": "目标明确未登记且未命中有效豁免",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_2"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 2,
+        "clusterId": "cluster-2dbd37901e",
+        "confidence": 0.76,
+        "intentCategory": "违规飞行（非恶意）",
+        "intentCategoryCode": "violation",
+        "intentCode": "I-13",
+        "intentLabel": "闯入警戒区",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_2_3",
+        "topCandidates": [
+          {
+            "confidence": 0.76,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-13",
+            "intentLabel": "闯入警戒区",
+            "intentName": "闯入警戒区",
+            "ruleName": "目标位于警戒区",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_3"
+            ]
+          },
+          {
+            "confidence": 0.72,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-11",
+            "intentLabel": "未报备飞行",
+            "intentName": "未报备飞行",
+            "ruleName": "目标明确未登记且未命中有效豁免",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_3"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 2,
+        "clusterId": "cluster-2dbd37901e",
+        "confidence": 0.68,
+        "intentCategory": "违规飞行（非恶意）",
+        "intentCategoryCode": "violation",
+        "intentCode": "I-13",
+        "intentLabel": "闯入预警区",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_2_4",
+        "topCandidates": [
+          {
+            "confidence": 0.68,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-13",
+            "intentLabel": "闯入预警区",
+            "intentName": "闯入预警区",
+            "ruleName": "目标位于预警区",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_4"
+            ]
+          },
+          {
+            "confidence": 0.72,
+            "intentCategory": "违规飞行（非恶意）",
+            "intentCategoryCode": "violation",
+            "intentCode": "I-11",
+            "intentLabel": "未报备飞行",
+            "intentName": "未报备飞行",
+            "ruleName": "目标明确未登记且未命中有效豁免",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_2_4"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 1,
+        "clusterId": "cluster-d2ad471505",
+        "confidence": 0.66,
+        "intentCategory": "未知/异常",
+        "intentCategoryCode": "unknown_abnormal",
+        "intentCode": "I-29",
+        "intentLabel": "身份不可辨",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_3_0",
+        "topCandidates": [
+          {
+            "confidence": 0.66,
+            "intentCategory": "未知/异常",
+            "intentCategoryCode": "unknown_abnormal",
+            "intentCode": "I-29",
+            "intentLabel": "身份不可辨",
+            "intentName": "身份不可辨",
+            "ruleName": "射频身份、广播身份和登记结论均不可用",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_3_0"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 1,
+        "clusterId": "cluster-d2ad471505",
+        "confidence": 0.66,
+        "intentCategory": "未知/异常",
+        "intentCategoryCode": "unknown_abnormal",
+        "intentCode": "I-29",
+        "intentLabel": "身份不可辨",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_3_1",
+        "topCandidates": [
+          {
+            "confidence": 0.66,
+            "intentCategory": "未知/异常",
+            "intentCategoryCode": "unknown_abnormal",
+            "intentCode": "I-29",
+            "intentLabel": "身份不可辨",
+            "intentName": "身份不可辨",
+            "ruleName": "射频身份、广播身份和登记结论均不可用",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_3_1"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 1,
+        "clusterId": "cluster-d2ad471505",
+        "confidence": 0.66,
+        "intentCategory": "未知/异常",
+        "intentCategoryCode": "unknown_abnormal",
+        "intentCode": "I-29",
+        "intentLabel": "身份不可辨",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_3_2",
+        "topCandidates": [
+          {
+            "confidence": 0.66,
+            "intentCategory": "未知/异常",
+            "intentCategoryCode": "unknown_abnormal",
+            "intentCode": "I-29",
+            "intentLabel": "身份不可辨",
+            "intentName": "身份不可辨",
+            "ruleName": "射频身份、广播身份和登记结论均不可用",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_3_2"
+            ]
+          }
+        ]
+      },
+      {
+        "candidateCount": 1,
+        "clusterId": "cluster-d2ad471505",
+        "confidence": 0.66,
+        "intentCategory": "未知/异常",
+        "intentCategoryCode": "unknown_abnormal",
+        "intentCode": "I-29",
+        "intentLabel": "身份不可辨",
+        "reasonCode": null,
+        "reviewRequired": false,
+        "specialViolationCode": null,
+        "status": "matched",
+        "targetId": "agent_3_3",
+        "topCandidates": [
+          {
+            "confidence": 0.66,
+            "intentCategory": "未知/异常",
+            "intentCategoryCode": "unknown_abnormal",
+            "intentCode": "I-29",
+            "intentLabel": "身份不可辨",
+            "intentName": "身份不可辨",
+            "ruleName": "射频身份、广播身份和登记结论均不可用",
+            "specialViolationCode": null,
+            "triggerTargetIds": [
+              "agent_3_3"
+            ]
+          }
+        ]
+      }
+    ],
+    "warnings": []
+  },
+  "diagnostics": {
+    "performanceTimings": {
+      "airspace_analysis": 0.011,
+      "build_result": 0.0,
+      "clustering": 0.005,
+      "correction_finalize": 0.0,
+      "defense_analysis": 0.0,
+      "feature_extraction_method": "vectorized",
+      "legacy_adapter": 0.051,
+      "threat_override": 0.0,
+      "total": 0.073
+    }
+  },
+  "message": "success",
+  "requestId": "algorithm-review-20261025-chain"
+}

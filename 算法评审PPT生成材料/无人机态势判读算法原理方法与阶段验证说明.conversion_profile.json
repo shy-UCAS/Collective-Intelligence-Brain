@@ -1,0 +1,30 @@
+{
+  "schema": "ppt-master.source_to_md.profile.v1",
+  "converter": "doc_to_md.py",
+  "conversion_type": "docx",
+  "source": {
+    "path": "无人机态势判读算法原理方法与阶段验证说明.docx",
+    "name": "无人机态势判读算法原理方法与阶段验证说明.docx",
+    "suffix": ".docx",
+    "kind": "file",
+    "exists": true,
+    "size_bytes": 345000
+  },
+  "outputs": {
+    "markdown": "无人机态势判读算法原理方法与阶段验证说明.md",
+    "asset_dir": "无人机态势判读算法原理方法与阶段验证说明_files",
+    "image_manifest": "无人机态势判读算法原理方法与阶段验证说明_files/image_manifest.json",
+    "image_count": 3
+  },
+  "markdown": {
+    "line_count": 956,
+    "char_count": 34882,
+    "heading_count": 92,
+    "table_count": 31,
+    "image_ref_count": 3,
+    "link_count": 3
+  },
+  "warnings": [
+    "Unrecognised paragraph style: caption (Style ID: Caption)"
+  ]
+}

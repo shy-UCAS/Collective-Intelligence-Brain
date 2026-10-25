@@ -1,0 +1,135 @@
+{
+  "timestampUTC": "2026-10-25T07:42:00.940397+00:00",
+  "purpose": "单次固定案例回放与中间产物取证；非性能或准确率试验",
+  "sourceRequestId": "agents02-1786511438543-00001",
+  "sourceFileSha256": "37a468c9fe6f1fee4004384d0e419d7f7f28bd5c491c7b70780150a6d92b748a",
+  "requestId": "algorithm-review-20261025-chain",
+  "responseRequestId": "algorithm-review-20261025-chain",
+  "paired": true,
+  "requestSha256": "5b76d448ea7ec67b9777b379836f5078bfa70eb823a2a563b06ba936ac858180",
+  "responseSha256": "e04de72b5916413b28b7e9f97513748aac9271f916ee9b2c70a365a4e36da699",
+  "traceSha256": "17c05c51db312713ce5b08b7b63a632c5f8c420dd6ea19950141d6e3f8f0c7b4",
+  "route": "/api/v1/situation/analyze",
+  "transport": "Flask test_client, in process",
+  "device": "cpu",
+  "torchThreads": 16,
+  "vectorizedFeatures": true,
+  "headers": {
+    "X-Situation-Rule-Version": "situation-rule-v2.3.0",
+    "X-Situation-Service-Instance": "167939c6-17ca-446a-bead-ceb9088f535b",
+    "X-Situation-Build-Id": "source-sha256:53b2ed66358d17fe",
+    "X-Situation-Map-Fingerprint": "sha256:219023540d7f05d85e6ff76c7f98624ac18d78de13ed641bbdda66d870986e3d"
+  },
+  "metadata": {
+    "code": 0,
+    "data": {
+      "apiVersion": "v3.2",
+      "buildId": "source-sha256:53b2ed66358d17fe",
+      "map": {
+        "airspaceCount": 0,
+        "facilityCount": 1,
+        "mapFingerprint": "sha256:219023540d7f05d85e6ff76c7f98624ac18d78de13ed641bbdda66d870986e3d",
+        "mapId": "agents02-apifox-default-map-v1",
+        "name": "空域与禁飞区接口动态默认态势地图",
+        "ringCount": 3,
+        "source": "GET /basic/api/airspace/list + GET /basic/api/nofly/list"
+      },
+      "minimumTrackPoints": 2,
+      "processId": 61940,
+      "ruleVersion": "situation-rule-v2.3.0",
+      "serviceInstanceId": "167939c6-17ca-446a-bead-ceb9088f535b",
+      "serviceName": "situation-judgment",
+      "startedAt": "2026-10-25T07:41:52.258654+00:00"
+    },
+    "message": "success"
+  },
+  "warmup": {
+    "formation_recognition.basic_units": "loaded",
+    "formation_recognition.clusters_recognition": "loaded",
+    "formation_recognition.intention_recognition": "loaded",
+    "formation_recognition.formation_recognition_pointnet": "loaded",
+    "formationRecognizer": "loaded"
+  },
+  "sourceHashes": {
+    "situation_judgment/engine.py": "ab9f1e4deb2e53f020e74eb789cdde601bd20b1064bc0c9b284c88fbc4d27b00",
+    "situation_judgment/legacy_adapter.py": "6e07b07d5f691647efaed2deb2405ae73166f1a0556ab4a077473f37dac80c1e",
+    "situation_judgment/vectorized_features.py": "45268d2f7a74f11107d3435769371f0bf1a386b51dcee5c5771c44f88d757b3c",
+    "situation_judgment/intent_rules.py": "df8ef98e2494dbf4eaff0099f05dea798e46e59686e2a432ab3c2c197b36553b",
+    "formation_recognition/clusters_recognition.py": "edc5e7c9a5cfbcf1236a14934035b3a0b9c4d1508c5e35be72846abb539c424b",
+    "formation_recognition/formation_recognition_pointnet.py": "16f38f53ef5be066920a55a0f0fcf7e9c1a89e7e442d68877d361d72768574dd",
+    "config.ini": "ea4b96cd487cd56e6533aa007e58455b7d4f4d70058b6d901785500ebf036118",
+    "config/service.ini": "3a8140d55aadc6f350740e4e78de834154260ddc562abd62e1af95e2b621a7c0",
+    "pretrained_weights/formation_recognition/form_recog_model_20260812_200622.pth": "bbe62fcb8ccc85cfdd35060e80d74d43bdfa3acc3223ce9127aadab398fd49bf"
+  },
+  "inputCounts": {
+    "targets": 13,
+    "realPersons": 4,
+    "drones": 4,
+    "whitelist": 4,
+    "plans": 0
+  },
+  "baseDataFields": {
+    "facilities": 3,
+    "rings": 3,
+    "airspaces": 0,
+    "drillPlans": 0
+  },
+  "parseRecords": 13,
+  "featureComputeRecords": 13,
+  "clusters": [
+    {
+      "clusterId": "cluster-2dbd37901e",
+      "memberCount": 5,
+      "formation": "vshape",
+      "intentCode": "I-13",
+      "intentLabel": "闯入警戒区",
+      "score": 46,
+      "grade": "mid",
+      "dimensions": {
+        "airspaceCircle": 62,
+        "altitude": 18,
+        "behaviorPosture": 25,
+        "clusterFormation": 80,
+        "complianceRegistration": 82,
+        "comprehensive": 46,
+        "intentInference": 52,
+        "model": 55,
+        "payload": 15,
+        "pilotProfile": 25,
+        "trajectoryTrend": 15
+      },
+      "weightedScore": 45.65,
+      "confidenceAdjustment": 0,
+      "hardRuleFloor": 0,
+      "defenseStatus": "unavailable",
+      "eta": null
+    },
+    {
+      "clusterId": "cluster-d2ad471505",
+      "memberCount": 4,
+      "formation": "vshape",
+      "intentCode": "I-29",
+      "intentLabel": "身份不可辨",
+      "score": 32,
+      "grade": "low",
+      "dimensions": {
+        "airspaceCircle": 10,
+        "altitude": 18,
+        "behaviorPosture": 25,
+        "clusterFormation": 62,
+        "complianceRegistration": 68,
+        "comprehensive": 32,
+        "intentInference": 40,
+        "model": 55,
+        "payload": 15,
+        "pilotProfile": 25,
+        "trajectoryTrend": 15
+      },
+      "weightedScore": 32.23,
+      "confidenceAdjustment": 0,
+      "hardRuleFloor": 0,
+      "defenseStatus": "unavailable",
+      "eta": null
+    }
+  ]
+}

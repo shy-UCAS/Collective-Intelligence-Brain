@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "pptSha256": "a4baa997484eececeb93798a27270da00932b42c75dc17120857fc6a2f326a97",
+  "wordSha256": "7d291a888a575289435dafa163fef370daa4d40e94ee943452a345bdb109448a",
+  "ppt": {
+    "slides": 44,
+    "nativeTables": 18,
+    "nativeCharts": 2,
+    "equations": 23,
+    "bitmapPictures": 0
+  },
+  "tableOwnerSlides": [
+    3,
+    8,
+    10,
+    12,
+    17,
+    21,
+    26,
+    28,
+    33,
+    35,
+    36,
+    38,
+    39,
+    40,
+    42,
+    43,
+    44
+  ],
+  "word": {
+    "inlinePictures": 18,
+    "equations": 34,
+    "renderedPages": 52
+  },
+  "regressionPassed": 12,
+  "sourceHashesUnchanged": 10,
+  "oldPptPreserved": true,
+  "originalWordBackedUp": true,
+  "notesAndSpeechMatch": true,
+  "nativeChartDataPreserved": true,
+  "outsideSlide": [],
+  "textOverlapCandidates": [],
+  "scope": "Package, numerical provenance, text boundaries and source consistency. Visual inspection is recorded separately; no independent accuracy claim."
+}

@@ -1,0 +1,109 @@
+{
+  "timestampUTC": "2026-10-23T04:32:48.434880+00:00",
+  "python": "3.12.3 | packaged by conda-forge | (main, Apr 15 2024, 18:20:11) [MSC v.1938 64 bit (AMD64)]",
+  "groups": [
+    {
+      "file": "test_collision_intent.py",
+      "run": 23,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.026,
+      "sha256": "80ceca844a651e242e2bfc7fb340cda622a1ee127c391fcd47f066fbdd1ca071",
+      "failureDetails": []
+    },
+    {
+      "file": "test_track_config.py",
+      "run": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 6.382,
+      "sha256": "9e9a6fba652dce356f40845f276ce896cd01699feae4f227f0989d9372bdcc70",
+      "failureDetails": []
+    },
+    {
+      "file": "test_track_timestamp_dedup.py",
+      "run": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.009,
+      "sha256": "dc8fcb59ade122e8f488d533c18e07dde0ee498cab1e1c1ced4621d616632a71",
+      "failureDetails": []
+    },
+    {
+      "file": "test_v1_intent_rules.py",
+      "run": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.003,
+      "sha256": "08653493f232c7938cff254b7a7eaffa559bd130f660b5668f0aa02f7960b4e8",
+      "failureDetails": []
+    },
+    {
+      "file": "test_map_refresh_service.py",
+      "run": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.034,
+      "sha256": "49bb3ebc6eeb58ed432daa1cb26b122ceaef90feac351dd9b85876a4a46f8cff",
+      "failureDetails": []
+    },
+    {
+      "file": "test_cluster_feature_regression.py",
+      "run": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.007,
+      "sha256": "56f0c890b9f60b6465548c3edd107f01f8122f7c5122f4f05566ecaf9fb039d9",
+      "failureDetails": []
+    },
+    {
+      "file": "test_cluster_preprocessing_regression.py",
+      "run": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.019,
+      "sha256": "f2ddefc97056d9c9c29d8dc005ae1b09f2b6f14079d8d322324657d934f08f30",
+      "failureDetails": []
+    },
+    {
+      "file": "test_cluster_distance_regression.py",
+      "run": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.004,
+      "sha256": "a7bb886fa18162e6eb8225246950f01cee3b69711fb65c7befc8303f4457b29b",
+      "failureDetails": []
+    },
+    {
+      "file": "test_airspace_analysis.py",
+      "run": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.005,
+      "sha256": "f2413e07b92551467ce8d0d54eb82d7a78fcd6c19e2f5e1fda4192d09989e916",
+      "failureDetails": []
+    },
+    {
+      "file": "test_v1_intent_feature_extraction.py",
+      "run": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.012,
+      "sha256": "66c2a4beb7ee91187c36ea12dca89e273220b3af9ce0bd623841c4c35dd9bc8e",
+      "failureDetails": []
+    }
+  ],
+  "total": 103,
+  "failures": 0,
+  "errors": 0
+}
