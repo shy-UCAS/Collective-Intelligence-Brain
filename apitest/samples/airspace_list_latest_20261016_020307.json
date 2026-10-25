@@ -1,0 +1,34 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "total": 1,
+    "list": [
+      {
+        "id": "2090661798751113216",
+        "name": "绍兴市重点防控区",
+        "scene": 1,
+        "controlLevel": 1,
+        "zoneType": 1,
+        "countermeasureGeom": null,
+        "alertGeom": null,
+        "warningGeom": null,
+        "countermeasureRadius": 500,
+        "alertRadius": 800,
+        "warningRadius": 1200,
+        "altitudeMax": 500,
+        "altitudeMin": 0,
+        "preventionMode": 1,
+        "facilityList": [
+          {
+            "id": "2090661798776279040",
+            "airspaceId": "2090661798751113216",
+            "name": "绍兴市巡特警支队",
+            "lng": 120.568095,
+            "lat": 29.932707
+          }
+        ]
+      }
+    ]
+  }
+}

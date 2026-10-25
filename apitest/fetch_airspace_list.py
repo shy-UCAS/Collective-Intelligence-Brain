@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-获取空域列表 (GET /airspace/list)
+获取空域列表 (GET /basic/api/airspace/list)
 
-后端服务: basic —— 测试环境地址 http://125.35.101.132:8888/basic
+后端服务: basic —— 测试环境地址 http://125.35.101.132:8888/basic/api
 注意: 该接口当前无鉴权，无需 Apifox 令牌。
 真实响应样例见: samples/airspace_list_sample.json
+
+【2026-10-16 接口路径变更】
+  旧路径 GET /basic/airspace/list 已不再放行，返回业务码 20003
+  "认证失败，无法访问系统资源"（非 404，网关认识前缀但拒绝）。
+  实测可用路径为 GET /basic/api/airspace/list。
+  响应体字段规格未变（顶层 15 个字段 + facilityList 5 个字段，与旧样本一致），
+  查询参数 pageNum/pageSize/name/preventionMode/zoneType/enabled 全部沿用。
+  生产侧 situation_judgment/default_map_refresh.py 早已使用 /api/ 前缀。
 
 用法:
     python fetch_airspace_list.py                      # 默认第一页 20 条
@@ -60,7 +68,7 @@ import json
 
 import requests
 
-BASE_URL = "http://125.35.101.132:8888/basic"  # 测试环境
+BASE_URL = "http://125.35.101.132:8888/basic/api"  # 测试环境（2026-10-16 起需 /api 前缀）
 PATH = "/airspace/list"
 
 

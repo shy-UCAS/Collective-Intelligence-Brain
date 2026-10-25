@@ -6,6 +6,20 @@
 注意: 该接口当前无鉴权，无需 Apifox 令牌。
 真实响应样例见: samples/device_type_latest_*.json
 
+【2026-10-16 阻断：本脚本暂不可用，未随空域/禁飞区一起改前缀】
+  实测 /equipment/device/all 与 /equipment/api/device/all 均返回
+  {"code":10000,"message":"服务繁忙,请稍后再试","data":null}（连续 6 次，
+  两条路径一致，非瞬时故障）。/ooda/device/all、/ooda/api/device/all 同样 10000。
+  但 GET http://125.35.101.132:8888/equipment 根路径返回一个 HTML 页面，
+  标题「设备管理 · 新模型」，前端调用 /equipment/all、/equipment/add、
+  /equipment/alter、/equipment/${encodedId}，字段含 deviceSource、kind、
+  subType、connectParm、coverageRadius、azimuth、alt、airspaceId。
+  即 equipment 微服务正在迁移到新数据模型，旧 /device/all 接口不可用。
+  处置：等待新模型接口规格后再重写本脚本；不要只把 BASE_URL 改成
+  /equipment/api —— 该路径实测同样返回 10000，改了也无济于事。
+  空域/禁飞区脚本（fetch_airspace_list.py、fetch_nofly_list.py）不受影响，
+  已改为 /basic/api 前缀并重抓样本。
+
 接口说明 (2026-08-24 实测 + Apifox 文档交叉核对):
   - GET /device/all  -> 无需参数, 直接返回全部设备(探测+反制)。
                        实测发现, 未见于 Apifox 文档。
