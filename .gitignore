@@ -11,6 +11,9 @@ outputs/
 # PPT 工程产物目录（含 pptx 与导出图，约 43MB，不入库）
 projects/
 
+# 算法评审 PPT 工作材料（约 1GB，含大量预览图、SVG 渲染与构建产物，不入库）
+算法评审PPT生成材料/
+
 # 运行产物（超大轨迹 JSON）
 uav_strategy_pure_py/outputs/
 uav_strategy_pure_py/outputs_opt/
